@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventiquattro | Artisan Pizza Restelo</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-terracotta: #C4581A;
+            --primary-terracotta-low: rgba(196, 88, 26, 0.1);
+            --bg-cream-parchment: #FAF6EE;
+            --secondary-olive: #2E3A20;
+            --text-near-black: #1A1A1A;
+            --text-muted: #4A4A4A;
+            --font-header: 'Lora', serif;
+            --font-body: 'Inter', sans-serif;
+            --section-padding: 100px 20px;
+            --border-radius: 4px;
+            --bg-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background-color: var(--bg-cream-parchment); color: var(--text-near-black); line-height: 1.6; overflow-x: hidden; }
+
+        .texture-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: var(--bg-grain); opacity: 0.12; pointer-events: none; z-index: 1; }
+
+        /* --- STICKY NAV --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 20px 40px; display: flex; align-items: center; justify-content: space-between;
+            transition: var(--transition-smooth);
+        }
+        nav.scrolled {
+            background: var(--bg-cream-parchment);
+            border-bottom: 2px solid var(--primary-terracotta);
+            padding: 15px 40px;
+        }
+        .nav-logo-img { height: 40px; width: auto; vertical-align: middle; transition: var(--transition-smooth); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { 
+            text-decoration: none; color: var(--text-near-black); font-size: 14px; font-weight: 500; 
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary-terracotta); }
+        .nav-cta {
+            background: var(--primary-terracotta); color: white; padding: 10px 22px;
+            border-radius: 50px; text-decoration: none; font-family: var(--font-header);
+            font-style: italic; font-size: 14px; transition: transform 0.2s;
+        }
+        .mobile-toggle { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
+        .mobile-toggle span { width: 25px; height: 2px; background: var(--secondary-olive); }
+
+        /* --- HERO COM VIDEO --- */
+        .hero-section {
+            height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; position: relative; overflow: hidden;
+            background-color: #000; /* Fundo preto enquanto carrega */
+        }
+        #hero-video {
+            position: absolute;
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Escurece o vídeo para ler o texto */
+            z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; color: white; }
+        .hero-content p { color: #eee !important; } /* Ajuste de cor para ler sobre o vídeo */
+        .hero-headline { font-family: var(--font-header); font-size: clamp(2.2rem, 5vw, 4rem); font-style: italic; line-height: 1.1; margin-bottom: 20px; color: white; }
+        
+        .hero-logo-main {
+            width: clamp(150px, 20vw, 220px);
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeInScale 0.8s ease-out;
+        }
+        .btn-primary { background: var(--primary-terracotta); color: white; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-family: var(--font-header); font-style: italic; font-weight: 600; display: inline-block; margin: 10px; border: none; cursor: pointer; }
+        .btn-secondary { border: 1.5px solid white; color: white; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; margin: 10px; }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* --- STORY --- */
+        .story-a { background: var(--primary-terracotta); color: white; padding: var(--section-padding); text-align: center; position: relative; }
+        .coincidences-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 900px; margin: 40px auto; }
+        .c-card { background: var(--bg-cream-parchment); color: var(--text-near-black); padding: 25px; border-radius: 8px; }
+        .story-b { padding: var(--section-padding); max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .story-image-container { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .donos-img { width: 100%; height: 450px; object-fit: cover; display: block; filter: sepia(20%); transition: transform 0.5s ease; }
+        .story-image-container:hover .donos-img { transform: scale(1.05); }
+
+        /* --- MENU SECTION --- */
+        .menu-section { padding: var(--section-padding); background: var(--bg-cream-parchment); position: relative; }
+        .tab-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 30px 0; }
+        .tab-btn { padding: 10px 20px; border-radius: 50px; border: 1.5px solid var(--secondary-olive); background: transparent; cursor: pointer; font-weight: 600; font-size: 14px; transition: var(--transition-smooth); }
+        .tab-btn.active { background: var(--primary-terracotta); color: white; border-color: var(--primary-terracotta); }
+        
+        /* --- MENU SLIDESHOW --- */
+        .menu-slideshow {
+            max-width: 1000px;
+            height: 400px;
+            margin: 0 auto 50px;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+        }
+        .slide {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            object-fit: cover;
+        }
+        .slide.active { opacity: 1; }
+
+        .menu-container { max-width: 1200px; margin: 0 auto; }
+        .menu-category-content { display: none; animation: fadeIn 0.4s ease forwards; }
+        .menu-category-content.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+
+        .menu-card { background: white; padding: 25px; border-radius: 12px; border-top: 3px solid var(--primary-terracotta); box-shadow: var(--shadow-subtle); display: flex; flex-direction: column; justify-content: space-between; }
+        .menu-card h3 { font-family: var(--font-header); font-size: 18px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: baseline; }
+        .menu-card .price { color: var(--primary-terracotta); font-weight: 700; font-size: 16px; margin-left: 10px; }
+        .menu-card p { font-size: 13px; color: var(--text-muted); font-style: italic; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- SOCIAL --- */
+        .social-proof { background: var(--secondary-olive); color: white; padding: var(--section-padding); overflow: hidden; position: relative; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 40px auto; }
+        .review-card { background: rgba(0,0,0,0.2); padding: 25px; border-radius: 12px; font-size: 14px; }
+        .ticker-wrap { width: 100%; background: #242d19; padding: 15px 0; margin: 40px 0; }
+        .ticker { display: flex; white-space: nowrap; animation: moveTicker 30s linear infinite; }
+        .ticker span { color: var(--primary-terracotta); margin-right: 50px; font-family: var(--font-header); font-style: italic; }
+
+        /* --- VISIT SECTION --- */
+        .visit-section { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: var(--section-padding); }
+        .visit-card { background: white; padding: 40px; border-radius: 14px; border-top: 3px solid var(--primary-terracotta); box-shadow: var(--shadow-subtle); text-align: center; }
+        .visit-info { 
+            position: relative;
+            background-image: url('IMG_7352.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white; 
+            padding: 40px; 
+            border-radius: 14px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            overflow: hidden;
+        }
+        .visit-info::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.65); /* Overlay to make text readable */
+            z-index: 1;
+        }
+        .visit-info > * { position: relative; z-index: 2; }
+
+        /* --- FOOTER --- */
+        footer { background: #1A1A1A; color: white; padding: 80px 40px 30px; position: relative; overflow: hidden; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+        .footer-logo-img { height: 60px; width: auto; margin-bottom: 15px; border-radius: 50%; opacity: 0.9; }
+        .footer-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 300px; font-family: var(--font-header); font-style: italic; color: var(--primary-terracotta); opacity: 0.04; pointer-events: none; }
+        .bottom-bar { text-align: center; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; margin-top: 50px; opacity: 0.6; }
+
+        @media (max-width: 850px) {
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .story-b, .visit-section { grid-template-columns: 1fr; }
+            .donos-img { height: 350px; }
+            .visit-info { min-height: 300px; }
+            .menu-slideshow { height: 250px; }
+        }
+
+        @keyframes moveTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#" class="nav-logo">
+            <img src="logoventi.jpeg" alt="Ventiquattro Logo" class="nav-logo-img">
+        </a>
+        <div class="nav-links">
+            <a href="#menu" style="color: white;">Menu</a>
+            <a href="#story" style="color: white;">Our Story</a>
+            <a href="#community" style="color: white;">Terrace</a>
+            <a href="#visit" style="color: white;">Visit Us</a>
+        </div>
+        <a href="#visit" class="nav-cta">Find Us</a>
+        <div class="mobile-toggle"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- HERO WITH VIDEO BACKGROUND -->
+    <section class="hero-section">
+        <video autoplay muted loop playsinline id="hero-video">
+            <source src="video.mp4" type="video/mp4">
+            O seu browser não suporta vídeos.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="texture-overlay"></div>
+        
+        <div class="hero-content">
+            <img src="logoventi.jpeg" alt="Ventiquattro Logo" class="hero-logo-main">
+            <p style="color:var(--primary-terracotta) !important; font-family:var(--font-header); font-style:italic; font-size:12px; letter-spacing:0.1em; margin-bottom:10px;">RESTELO · LISBOA · EST. 2020</p>
+            <h1 class="hero-headline">The number that chose us.<br>The pizza we chose back.</h1>
+            <p style="max-width:500px; margin:0 auto 30px;">Thin-crust artisan pizza, Italian starters and a covered terrace in the heart of Restelo.</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn-primary">View Menu</a>
+                <a href="https://www.ubereats.com" target="_blank" class="btn-secondary">Order via UberEats</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORY -->
+    <section id="story">
+        <div class="story-a">
+            <div class="texture-overlay"></div>
+            <h2 style="font-family:var(--font-header); font-style:italic; font-size:32px; margin-bottom:20px;">Four coincidences. One destiny.</h2>
+            <p style="max-width:600px; margin:0 auto;">O número 24 apareceu no aniversário da Inês, do Carlos, no dia de casamento e até no número da porta.</p>
+            <div class="coincidences-grid">
+                <div class="c-card">🎂 Inês: 24</div>
+                <div class="c-card">🎂 Carlos: 24</div>
+                <div class="c-card">💒 Wedding: 24</div>
+                <div class="c-card">🚪 Door: 24A</div>
+            </div>
+        </div>
+        <div class="story-b">
+            <div>
+                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;">From Hair Salon to Pizzeria</h3>
+                <p>Durante 49 anos, este espaço foi o Salão do Restelo da D. Tina. Hoje, a filha Inês continua o legado, trocando secadores por um forno de pizza artesanal.</p>
+                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);">Na foto: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
+            </div>
+            <div class="story-image-container">
+                <img src="donos.webp" alt="Inês e Carlos - Donos da Ventiquattro" class="donos-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu-section" id="menu">
+        <div class="texture-overlay"></div>
+        <div style="text-align:center;">
+            <h2 style="font-family:var(--font-header); font-style:italic; font-size:36px;">Our Menu</h2>
+            <div class="tab-filters">
+                <button class="tab-btn active" onclick="switchMenu('entradas')">Entradas</button>
+                <button class="tab-btn" onclick="switchMenu('saladas')">Saladas</button>
+                <button class="tab-btn" onclick="switchMenu('massas')">Massas</button>
+                <button class="tab-btn" onclick="switchMenu('pizzas')">Pizzas</button>
+                <button class="tab-btn" onclick="switchMenu('tabuas')">Tábuas</button>
+            </div>
+        </div>
+
+        <!-- MENU SLIDESHOW -->
+        <div class="menu-slideshow">
+            <img src="IMG_7355.jpg" class="slide active" alt="Menu Item">
+            <img src="IMG_7356.jpg" class="slide" alt="Menu Item">
+            <img src="IMG_7357.jpg" class="slide" alt="Menu Item">
+            <img src="IMG_7358.jpg" class="slide" alt="Menu Item">
+            <img src="IMG_7359.jpg" class="slide" alt="Menu Item">
+            <img src="IMG_7360.jpg" class="slide" alt="Menu Item">
+            <img src="IMG_7361.jpg" class="slide" alt="Menu Item">
+        </div>
+
+        <div class="menu-container">
+            <!-- ENTRADAS -->
+            <div id="entradas" class="menu-category-content active">
+                <div class="menu-card"><h3>Croquetes <span class="price">4,50€</span></h3><p>Com mostarda e mel (3 unidades)</p></div>
+                <div class="menu-card"><h3>Carpaccio de salmão <span class="price">11,50€</span></h3><p>Rucula, lima, alcaparras e pesto</p></div>
+                <div class="menu-card"><h3>Carpaccio de vitela <span class="price">9,50€</span></h3><p>Rucula e lascas de parmesão</p></div>
+                <div class="menu-card"><h3>Pão de Alho <span class="price">4,50€</span></h3><p>Em pão da casa, mozzarella fior di latte, tomate, manjericão e azeite de alho</p></div>
+                <div class="menu-card"><h3>Bruschetta do Chefe <span class="price">5,90€</span></h3><p>Pão da casa, mozzarella bufala, presunto de Parma, rucula e tomate cereja</p></div>
+                <div class="menu-card"><h3>Bruschetta de Bacalhau <span class="price">6,50€</span></h3><p>Pão da casa, molho de tomate, peperoncini e carpaccio de bacalhau</p></div>
+                <div class="menu-card"><h3>Crostini de Salmão <span class="price">6,50€</span></h3><p>Pão da casa, mozzarella bufala, salmão marinado, pesto, rucula e lima</p></div>
+                <div class="menu-card"><h3>Foccacia <span class="price">4,00€</span></h3><p>Azeite de alho e alecrim</p></div>
+            </div>
+
+            <!-- SALADAS -->
+            <div id="saladas" class="menu-category-content">
+                <div class="menu-card"><h3>Arrifana * <span class="price">11,90€</span></h3><p>Alfaces, queijo de cabra alentejano, tomate seco, presunto, azeitonas</p></div>
+                <div class="menu-card"><h3>Salmão * <span class="price">12,90€</span></h3><p>Rucula, abacate, bufala, salmão marinado e pesto</p></div>
+                <div class="menu-card"><h3>Ventiquattro * <span class="price">10,90€</span></h3><p>Alfaces, presunto de parma, tomate seco e lascas de parmesão</p></div>
+                <div class="menu-card"><h3>Verão * <span class="price">12,90€</span></h3><p>Alfaces, queijo pecurino, presunto de parma e figos</p></div>
+                <div class="menu-card"><h3>Aljezur <span class="price">12,90€</span></h3><p>Alfaces, tomate cereja, peperoncini, frango assado, molho de limão, mel e mostarda dijon</p></div>
+                <div class="menu-card"><h3>Burrata <span class="price">11,50€</span></h3><p>Folhas de alface, tomate cereja, manjericão e torradinhas</p></div>
+            </div>
+
+            <!-- MASSAS -->
+            <div id="massas" class="menu-category-content">
+                <div class="menu-card"><h3>Lasanha de carne <span class="price">10,50€</span></h3><p>Receita clássica artesanal</p></div>
+                <div class="menu-card"><h3>Lasanha vegetariana <span class="price">10,50€</span></h3><p>Legumes frescos e bechamel da casa</p></div>
+                <div class="menu-card"><h3>Linguini Nero com camarão <span class="price">14,90€</span></h3><p>Molho de tomate, camarão, salsa e alho</p></div>
+                <div class="menu-card"><h3>Fusilli al pesto <span class="price">11,90€</span></h3><p>Creme de burrata, rucula, tomate cereja, pesto e pinhões</p></div>
+                <div class="menu-card"><h3>Fusilli bambino <span class="price">8,90€</span></h3><p>Molho de tomate, tomate cereja, frango assado</p></div>
+            </div>
+
+            <!-- PIZZAS -->
+            <div id="pizzas" class="menu-category-content">
+                <div class="menu-card"><h3>Ventiquattro ★ <span class="price">14,50€</span></h3><p>Mozzarella fior di latte, rúcula, búfala e tomate cereja.</p></div>
+                <div class="menu-card"><h3>Diavola <span class="price">13,50€</span></h3><p>Molho de tomate, fior di latte, salame ventricino picante.</p></div>
+                <div class="menu-card"><h3>Trufa <span class="price">16,00€</span></h3><p>Pasta de trufa, mozzarella fior di latte e trufa laminada.</p></div>
+                <div class="menu-card"><h3>Margherita <span class="price">10,50€</span></h3><p>Tomate, mozzarella fior di latte e manjericão fresco.</p></div>
+            </div>
+
+            <!-- TÁBUAS -->
+            <div id="tabuas" class="menu-category-content">
+                <div class="menu-card"><h3>Tabua 23 <span class="price">12,90€</span></h3><p>Presunto de Parma, queijo provolone, tomate cereja, manjericão e cesto de pão</p></div>
+                <div class="menu-card"><h3>Tabua 24 <span class="price">22,00€</span></h3><p>Queijos grana padano, gorgonzola e provolone, presunto de Parma, chouriço, salame ventricino e pão</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL & TERRACE -->
+    <section class="social-proof" id="community">
+        <div style="text-align:center;">
+            <h2 style="font-family:var(--font-header); font-style:italic; font-size:32px;">O que diz o Restelo</h2>
+            <p>4.5 ★ no Google · 250 reviews</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">"A melhor pizza de massa fina em Lisboa. A Ventiquattro é soberba." - Google Review</div>
+            <div class="review-card">"Esplanada aquecida fantástica para as noites de inverno." - Google Review</div>
+            <div class="review-card">"Atendimento familiar e qualidade constante. Recomendo a Parma." - Google Review</div>
+        </div>
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <span>MASSA FINA & CROCANTE</span><span>ESPLANADA AQUECIDA</span><span>OPEN EVERY DAY</span><span>RESTELO PRIDE</span>
+                <span>MASSA FINA & CROCANTE</span><span>ESPLANADA AQUECIDA</span><span>OPEN EVERY DAY</span><span>RESTELO PRIDE</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISIT SECTION -->
+    <section class="visit-section" id="visit">
+        <div class="visit-card">
+            <h2 style="font-family:var(--font-header); font-style:italic; margin-bottom:15px; color:var(--primary-terracotta);">Walk-ins Welcome</h2>
+            <p style="color:var(--text-muted); margin-bottom:25px;">Não aceitamos reservas. Sinta-se à vontade para aparecer, desfrutar da nossa esplanada e garantimos que terá uma mesa o mais breve possível.</p>
+            <div style="border-top:1px solid #eee; padding-top:25px;">
+                <p style="font-weight:600; margin-bottom:5px;">Dúvidas ou Take-away?</p>
+                <a href="tel:+351963974421" style="font-size:24px; color:var(--text-near-black); text-decoration:none; font-family:var(--font-header); font-weight:700;">+351 963 974 421</a>
+            </div>
+        </div>
+        <div class="visit-info">
+            <h3 style="font-family:var(--font-header); font-style:italic; color:var(--primary-terracotta); margin-bottom:15px;">How to find us</h3>
+            <p style="margin-bottom:20px;">Rua Duarte Pacheco Pereira 24A,<br>1400-140 Lisboa (Restelo)</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; border-top:1px solid rgba(255,255,255,0.3); padding-top:20px;">
+                <div>
+                    <p style="font-weight:700; color:var(--primary-terracotta);">Almoço</p>
+                    <p style="opacity:1;">12:00 – 15:00</p>
+                </div>
+                <div>
+                    <p style="font-weight:700; color:var(--primary-terracotta);">Jantar</p>
+                    <p style="opacity:1;">19:00 – 22:30</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-watermark">24</div>
+        <div class="footer-grid">
+            <div>
+                <img src="logoventi.jpeg" alt="Ventiquattro Logo" class="footer-logo-img">
+                <p style="font-size:14px; opacity:0.8;">The number that chose us.<br>R. Duarte Pacheco Pereira 24A</p>
+            </div>
+            <div>
+                <h4 style="color:var(--primary-terracotta); margin-bottom:15px;">Menu</h4>
+                <ul style="list-style:none; font-size:13px; opacity:0.7; line-height:2;">
+                    <li>Entradas</li><li>Saladas</li><li>Massas</li><li>Pizzas</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color:var(--primary-terracotta); margin-bottom:15px;">Follow Us</h4>
+                <p style="font-size:13px; opacity:0.7;">@pizzaria.ventiquattro</p>
+                <p style="font-size:13px; opacity:0.7; margin-top:10px;">UberEats Delivery Available</p>
+            </div>
+        </div>
+        <p style="text-align:center; font-family:var(--font-header); font-style:italic; font-size:11px; opacity:0.4; margin-top:40px;">
+            Inês's birthday · Carlos's birthday · Wedding anniversary · Door number · Ventiquattro.
+        </p>
+        <div class="bottom-bar">
+            © 2026 Ventiquattro. Restelo, Lisboa. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.onscroll = function() {
+            var nav = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            if (window.pageYOffset > 100) {
+                nav.classList.add('scrolled');
+                navLinks.forEach(link => link.style.color = 'var(--text-near-black)');
+            } else {
+                nav.classList.remove('scrolled');
+                navLinks.forEach(link => link.style.color = 'white');
+            }
+        };
+
+        // Menu Switcher Logic
+        function switchMenu(categoryId) {
+            const btns = document.querySelectorAll('.tab-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            
+            if (event) event.target.classList.add('active');
+            
+            const categories = document.querySelectorAll('.menu-category-content');
+            categories.forEach(cat => cat.classList.remove('active'));
+            
+            const selectedCategory = document.getElementById(categoryId);
+            if (selectedCategory) {
+                selectedCategory.classList.add('active');
+            }
+        }
+
+        // Slideshow Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showNextSlide() {
+            if (slides.length > 0) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+        }
+
+        setInterval(showNextSlide, 2000);
+    </script>
+</body>
+</html>
