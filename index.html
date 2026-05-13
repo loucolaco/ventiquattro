@@ -79,7 +79,6 @@
             z-index: 1001;
         }
         
-        /* MOBILE MENU TOGGLE */
         .mobile-toggle { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
         .mobile-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
         nav.scrolled .mobile-toggle span { background: var(--secondary-olive); }
@@ -212,7 +211,7 @@
         .donos-img { width: 100%; height: 450px; object-fit: cover; display: block; filter: sepia(20%); transition: transform 0.5s ease; }
         .story-image-container:hover .donos-img { transform: scale(1.05); }
 
-        /* --- NOVA SECÇÃO: ESSÊNCIA --- */
+        /* --- SECÇÃO: ESSÊNCIA (Atualizada) --- */
         .essence-section {
             padding: var(--section-padding);
             background: var(--secondary-olive);
@@ -234,7 +233,7 @@
             margin-top: 60px;
         }
         .essence-card {
-            padding: 30px;
+            padding: 50px 30px; /* Padding aumentado para equilibrar sem emoji */
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             transition: var(--transition-smooth);
@@ -245,19 +244,15 @@
             transform: translateY(-5px);
             border-bottom-color: var(--primary-terracotta);
         }
-        .essence-icon {
-            font-size: 32px;
-            margin-bottom: 20px;
-            display: block;
-        }
         .essence-card h3 {
             font-family: var(--font-header);
             font-style: italic;
+            font-size: 26px; /* Tamanho aumentado conforme pedido */
             margin-bottom: 15px;
             color: var(--primary-terracotta);
         }
         .essence-card p {
-            font-size: 14px;
+            font-size: 15px; /* Ligeiro ajuste no corpo do texto */
             opacity: 0.8;
             line-height: 1.6;
         }
@@ -349,12 +344,7 @@
             }
             .nav-links.active { display: flex; opacity: 1; }
             .nav-links a { color: var(--text-near-black) !important; font-size: 24px; font-family: var(--font-header); }
-            .nav-links .lang-btn { 
-                border-color: var(--primary-terracotta); 
-                color: var(--primary-terracotta); 
-                font-size: 16px; 
-                padding: 10px 20px;
-            }
+            .nav-links .lang-btn { border-color: var(--primary-terracotta); color: var(--primary-terracotta); font-size: 16px; padding: 10px 20px; }
             .nav-cta { display: none; }
             .mobile-toggle { display: flex; }
             .story-b, .visit-section { grid-template-columns: 1fr; }
@@ -427,12 +417,12 @@
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
                     <div class="t-label">Inês</div>
-                    <div class="t-desc"><span lang="pt">Dia de anos</span><span lang="en">Birthday</span></div>
+                    <div class="t-desc"><span lang="pt">Aniversário</span><span lang="en">Birthday</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
                     <div class="t-label">Carlos</div>
-                    <div class="t-desc"><span lang="pt">Dia de anos</span><span lang="en">Birthday</span></div>
+                    <div class="t-desc"><span lang="pt">Aniversário</span><span lang="en">Birthday</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
@@ -455,7 +445,7 @@
                 <p lang="pt">Durante 49 anos, este espaço foi o Salão do Restelo da D. Tina. Hoje, a filha Inês continua o legado, trocando secadores por um forno de pizza artesanal.</p>
                 <p lang="en">For 49 years, this space was D. Tina's Restelo Salon. Today, her daughter Inês continues the legacy, swapping hairdryers for an artisan pizza oven.</p>
                 
-                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="pt">Na fotografia: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
+                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="pt">Na foto: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
                 <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="en">Pictured: Inês and Carlos, the faces behind Ventiquattro.</p>
             </div>
             <div class="story-image-container">
@@ -464,7 +454,7 @@
         </div>
     </section>
 
-    <!-- ESSÊNCIA SECTION -->
+    <!-- ESSÊNCIA SECTION (Emoji-free version) -->
     <section class="essence-section">
         <div class="texture-overlay"></div>
         <div class="essence-container">
@@ -480,19 +470,16 @@
 
             <div class="essence-grid">
                 <div class="essence-card">
-                    <span class="essence-icon">🇮🇹</span>
                     <h3 lang="pt">Raízes Italianas</h3><h3 lang="en">Italian Roots</h3>
                     <p lang="pt">Inspirada nas tradicionais trattorias, trazemos a autenticidade mediterrânea para Lisboa através da simplicidade e frescura.</p>
                     <p lang="en">Inspired by traditional trattorias, we bring Mediterranean authenticity to Lisbon through simplicity and freshness.</p>
                 </div>
                 <div class="essence-card">
-                    <span class="essence-icon">🍕</span>
                     <h3 lang="pt">Feito à Mão</h3><h3 lang="en">Handmade</h3>
                     <p lang="pt">Massas artesanais e pizzas de forno preparadas com tempo e dedicação, honrando a tradição em cada detalhe.</p>
                     <p lang="en">Artisanal pastas and oven-baked pizzas prepared with time and dedication, honoring tradition in every detail.</p>
                 </div>
                 <div class="essence-card">
-                    <span class="essence-icon">🏠</span>
                     <h3 lang="pt">Espírito de Casa</h3><h3 lang="en">Home Spirit</h3>
                     <p lang="pt">Um lugar pensado para ficar sem pressa, partilhar momentos e regressar onde o conforto é o prato principal.</p>
                     <p lang="en">A place designed to stay without haste, share moments and return where comfort is the main dish.</p>
@@ -526,7 +513,6 @@
         </div>
 
         <div class="menu-container">
-            <!-- ENTRADAS -->
             <div id="entradas" class="menu-category-content active">
                 <div class="menu-card"><h3>Croquetes <span class="price">4,50€</span></h3><p><span lang="pt">Com mostarda e mel (3 unidades)</span><span lang="en">With mustard and honey (3 units)</span></p></div>
                 <div class="menu-card"><h3>Carpaccio de salmão <span class="price">11,50€</span></h3><p><span lang="pt">Rucula, lima, alcaparras e pesto</span><span lang="en">Arugula, lime, capers and pesto</span></p></div>
@@ -538,7 +524,6 @@
                 <div class="menu-card"><h3>Foccacia <span class="price">4,00€</span></h3><p><span lang="pt">Azeite de alho e alecrim</span><span lang="en">Garlic oil and rosemary</span></p></div>
             </div>
 
-            <!-- SALADAS -->
             <div id="saladas" class="menu-category-content">
                 <div class="menu-card"><h3>Arrifana * <span class="price">11,90€</span></h3><p><span lang="pt">Alfaces, queijo de cabra alentejano, tomate seco, presunto, azeitonas</span><span lang="en">Lettuce, goat cheese, dried tomato, ham, olives</span></p></div>
                 <div class="menu-card"><h3>Salmão * <span class="price">12,90€</span></h3><p><span lang="pt">Rucula, abacate, bufala, salmão marinado e pesto</span><span lang="en">Arugula, avocado, buffalo mozzarella, marinated salmon and pesto</span></p></div>
@@ -548,7 +533,6 @@
                 <div class="menu-card"><h3>Burrata <span class="price">11,50€</span></h3><p><span lang="pt">Folhas de alface, tomate cereja, manjericão e torradinhas</span><span lang="en">Lettuce leaves, cherry tomato, basil and toasties</span></p></div>
             </div>
 
-            <!-- MASSAS -->
             <div id="massas" class="menu-category-content">
                 <div class="menu-card"><h3>Lasanha de carne <span class="price">10,50€</span></h3><p><span lang="pt">Receita clássica artesanal</span><span lang="en">Classic artisan recipe</span></p></div>
                 <div class="menu-card"><h3>Lasanha vegetariana <span class="price">10,50€</span></h3><p><span lang="pt">Legumes frescos e bechamel da casa</span><span lang="en">Fresh vegetables and house bechamel</span></p></div>
@@ -557,7 +541,6 @@
                 <div class="menu-card"><h3>Fusilli bambino <span class="price">8,90€</span></h3><p><span lang="pt">Molho de tomate, tomate cereja, frango assado</span><span lang="en">Tomato sauce, cherry tomato, roast chicken</span></p></div>
             </div>
 
-            <!-- PIZZAS -->
             <div id="pizzas" class="menu-category-content">
                 <div class="menu-card"><h3>Ventiquattro ★ <span class="price">14,50€</span></h3><p><span lang="pt">Mozzarella fior di latte, rúcula, búfala e tomate cereja.</span><span lang="en">Fior di latte mozzarella, arugula, buffalo mozzarella and cherry tomato.</span></p></div>
                 <div class="menu-card"><h3>Diavola <span class="price">13,50€</span></h3><p><span lang="pt">Molho de tomate, fior di latte, salame ventricino picante.</span><span lang="en">Tomato sauce, fior di latte, spicy ventricino salami.</span></p></div>
@@ -565,7 +548,6 @@
                 <div class="menu-card"><h3>Margherita <span class="price">10,50€</span></h3><p><span lang="pt">Tomate, mozzarella fior di latte e manjericão fresco.</span><span lang="en">Tomato, fior di latte mozzarella and fresh basil.</span></p></div>
             </div>
 
-            <!-- TÁBUAS -->
             <div id="tabuas" class="menu-category-content">
                 <div class="menu-card"><h3>Tabua 23 <span class="price">12,90€</span></h3><p><span lang="pt">Presunto de Parma, queijo provolone, tomate cereja, manjericão e cesto de pão</span><span lang="en">Parma ham, provolone cheese, cherry tomato, basil and bread basket</span></p></div>
                 <div class="menu-card"><h3>Tabua 24 <span class="price">22,00€</span></h3><p><span lang="pt">Queijos grana padano, gorgonzola e provolone, presunto de Parma, chouriço, salame ventricino e pão</span><span lang="en">Grana padano, gorgonzola and provolone, Parma ham, chorizo, ventricino salami and bread</span></p></div>
@@ -664,14 +646,12 @@
     </footer>
 
     <script>
-        // Toggle Language
         function toggleLang() {
             const body = document.body;
             body.classList.toggle('lang-en');
             body.classList.toggle('lang-pt');
         }
 
-        // Navbar scroll effect
         window.onscroll = function() {
             var nav = document.getElementById('navbar');
             if (window.pageYOffset > 100) {
@@ -681,7 +661,6 @@
             }
         };
 
-        // Mobile Menu Toggle Logic
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -695,11 +674,9 @@
             navLinks.classList.remove('active');
         }
 
-        // Menu Switcher Logic
         function switchMenu(categoryId) {
             const btns = document.querySelectorAll('.tab-btn');
             btns.forEach(btn => btn.classList.remove('active'));
-            
             if (event && event.target) event.target.classList.add('active');
             
             const categories = document.querySelectorAll('.menu-category-content');
@@ -711,10 +688,8 @@
             }
         }
 
-        // Slideshow Logic
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
-        
         function showNextSlide() {
             if (slides.length > 0) {
                 slides[currentSlide].classList.remove('active');
@@ -722,7 +697,6 @@
                 slides[currentSlide].classList.add('active');
             }
         }
-
         setInterval(showNextSlide, 2000);
     </script>
 </body>
