@@ -148,7 +148,7 @@
         .story-timeline::before {
             content: "";
             position: absolute;
-            top: 25px; /* Alinhado com o centro do novo dot maior */
+            top: 25px;
             left: 5%;
             right: 5%;
             height: 1px;
@@ -164,7 +164,7 @@
         .timeline-item:hover { transform: translateY(-10px); }
         
         .t-dot { 
-            width: 50px; height: 50px; /* Maior */
+            width: 50px; height: 50px;
             background: var(--bg-cream-parchment); 
             border-radius: 50%; 
             margin: 0 auto 25px; 
@@ -202,7 +202,7 @@
         .t-desc { 
             font-family: var(--font-header); 
             font-style: italic; 
-            font-size: 22px; /* Maior */
+            font-size: 22px; 
             line-height: 1.2;
         }
 
@@ -211,6 +211,56 @@
         .story-image-container { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
         .donos-img { width: 100%; height: 450px; object-fit: cover; display: block; filter: sepia(20%); transition: transform 0.5s ease; }
         .story-image-container:hover .donos-img { transform: scale(1.05); }
+
+        /* --- NOVA SECÇÃO: ESSÊNCIA --- */
+        .essence-section {
+            padding: var(--section-padding);
+            background: var(--secondary-olive);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .essence-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .essence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        .essence-card {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: var(--transition-smooth);
+            border-bottom: 2px solid transparent;
+        }
+        .essence-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-bottom-color: var(--primary-terracotta);
+        }
+        .essence-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .essence-card h3 {
+            font-family: var(--font-header);
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--primary-terracotta);
+        }
+        .essence-card p {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
 
         /* --- MENU SECTION --- */
         .menu-section { padding: var(--section-padding); background: var(--bg-cream-parchment); position: relative; }
@@ -308,6 +358,7 @@
             .nav-cta { display: none; }
             .mobile-toggle { display: flex; }
             .story-b, .visit-section { grid-template-columns: 1fr; }
+            .essence-grid { grid-template-columns: 1fr; }
             .donos-img { height: 350px; }
             .visit-info { min-height: 300px; }
             .menu-slideshow { height: 250px; }
@@ -413,6 +464,43 @@
         </div>
     </section>
 
+    <!-- ESSÊNCIA SECTION -->
+    <section class="essence-section">
+        <div class="texture-overlay"></div>
+        <div class="essence-container">
+            <h2 style="font-family:var(--font-header); font-style:italic; font-size:36px; margin-bottom:20px;">
+                <span lang="pt">A Nossa Essência</span><span lang="en">Our Essence</span>
+            </h2>
+            <p style="max-width:750px; margin:0 auto; font-size:18px; opacity:0.9;" lang="pt">
+                No coração do Restelo, a Ventiquattro nasceu para ser mais do que uma pizzaria — um ponto de encontro onde o bairro se cruza naturalmente.
+            </p>
+            <p style="max-width:750px; margin:0 auto; font-size:18px; opacity:0.9;" lang="en">
+                In the heart of Restelo, Ventiquattro was born to be more than just a pizzeria — a meeting point where the neighborhood naturally crosses paths.
+            </p>
+
+            <div class="essence-grid">
+                <div class="essence-card">
+                    <span class="essence-icon">🇮🇹</span>
+                    <h3 lang="pt">Raízes Italianas</h3><h3 lang="en">Italian Roots</h3>
+                    <p lang="pt">Inspirada nas tradicionais trattorias, trazemos a autenticidade mediterrânea para Lisboa através da simplicidade e frescura.</p>
+                    <p lang="en">Inspired by traditional trattorias, we bring Mediterranean authenticity to Lisbon through simplicity and freshness.</p>
+                </div>
+                <div class="essence-card">
+                    <span class="essence-icon">🍕</span>
+                    <h3 lang="pt">Feito à Mão</h3><h3 lang="en">Handmade</h3>
+                    <p lang="pt">Massas artesanais e pizzas de forno preparadas com tempo e dedicação, honrando a tradição em cada detalhe.</p>
+                    <p lang="en">Artisanal pastas and oven-baked pizzas prepared with time and dedication, honoring tradition in every detail.</p>
+                </div>
+                <div class="essence-card">
+                    <span class="essence-icon">🏠</span>
+                    <h3 lang="pt">Espírito de Casa</h3><h3 lang="en">Home Spirit</h3>
+                    <p lang="pt">Um lugar pensado para ficar sem pressa, partilhar momentos e regressar onde o conforto é o prato principal.</p>
+                    <p lang="en">A place designed to stay without haste, share moments and return where comfort is the main dish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- MENU -->
     <section class="menu-section" id="menu">
         <div class="texture-overlay"></div>
@@ -456,7 +544,7 @@
                 <div class="menu-card"><h3>Salmão * <span class="price">12,90€</span></h3><p><span lang="pt">Rucula, abacate, bufala, salmão marinado e pesto</span><span lang="en">Arugula, avocado, buffalo mozzarella, marinated salmon and pesto</span></p></div>
                 <div class="menu-card"><h3>Ventiquattro * <span class="price">10,90€</span></h3><p><span lang="pt">Alfaces, presunto de parma, tomate seco e lascas de parmesão</span><span lang="en">Lettuce, parma ham, dried tomato and parmesan shavings</span></p></div>
                 <div class="menu-card"><h3>Verão * <span class="price">12,90€</span></h3><p><span lang="pt">Alfaces, queijo pecurino, presunto de parma e figos</span><span lang="en">Lettuce, pecorino cheese, parma ham and figs</span></p></div>
-                <div class="menu-card"><h3>Aljezur <span class="price">12,90€</span></h3><p><span lang="pt">Alfaces, tomate cereja, peperoncini, frango assado, molho de limão, mel e mostarda dijon</span><span lang="en">Lettuce, cherry tomato, peperoncini, roast chicken, lemon, honey and mustard sauce</span></p></div>
+                <div class="menu-card"><h3>Aljezur <span class="price">12,90€</span></h3><p><span lang="pt">Alfaces, tomate cereja, peperoncini, frango assado, molho de limão, mel e mostarda dijon</span><span lang="en">Lettuce, cherry tomato, peperoncini, roast chicken, lemon, honey and consultant dijon</span></p></div>
                 <div class="menu-card"><h3>Burrata <span class="price">11,50€</span></h3><p><span lang="pt">Folhas de alface, tomate cereja, manjericão e torradinhas</span><span lang="en">Lettuce leaves, cherry tomato, basil and toasties</span></p></div>
             </div>
 
