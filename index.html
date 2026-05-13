@@ -37,7 +37,8 @@
 
         /* --- STICKY NAV --- */
         nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
+            position: fixed;
+            top: 0; width: 100%; z-index: 1000;
             padding: 20px 40px; display: flex; align-items: center; justify-content: space-between;
             transition: var(--transition-smooth);
         }
@@ -49,7 +50,8 @@
         .nav-logo-img { height: 40px; width: auto; vertical-align: middle; transition: var(--transition-smooth); z-index: 1002; }
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { 
-            text-decoration: none; color: white; font-size: 14px; font-weight: 500; 
+            text-decoration: none;
+            color: white; font-size: 14px; font-weight: 500; 
             transition: color 0.2s;
         }
         nav.scrolled .nav-links a { color: var(--text-near-black); }
@@ -72,7 +74,8 @@
         }
 
         .nav-cta {
-            background: var(--primary-terracotta); color: white; padding: 10px 22px;
+            background: var(--primary-terracotta);
+            color: white; padding: 10px 22px;
             border-radius: 50px; text-decoration: none; font-family: var(--font-header);
             font-style: italic; font-size: 14px; transition: transform 0.2s;
             z-index: 1001;
@@ -87,7 +90,8 @@
 
         /* --- HERO COM VIDEO --- */
         .hero-section {
-            height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            height: 100dvh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; position: relative; overflow: hidden;
             background-color: #000;
         }
@@ -128,15 +132,13 @@
 
         /* --- STORY A (TIMELINE DINÂMICA) --- */
         .story-a { 
-            background: var(--primary-terracotta); 
-            color: white; 
+            background: var(--primary-terracotta); color: white; 
             padding: var(--section-padding); 
             text-align: center; 
             position: relative; 
         }
         .story-timeline { 
-            display: flex; 
-            justify-content: center; 
+            display: flex; justify-content: center; 
             align-items: flex-start; 
             max-width: 1100px; 
             margin: 80px auto 40px; 
@@ -154,8 +156,7 @@
             z-index: 0;
         }
         .timeline-item { 
-            position: relative; 
-            z-index: 1; 
+            position: relative; z-index: 1; 
             flex: 1; 
             transition: var(--transition-smooth);
         }
@@ -178,8 +179,7 @@
             transition: var(--transition-smooth);
         }
         .timeline-item:hover .t-dot {
-            background: var(--secondary-olive);
-            color: white;
+            background: var(--secondary-olive); color: white;
             box-shadow: 0 0 0 12px rgba(250, 246, 238, 0.2);
         }
         
@@ -190,16 +190,14 @@
         }
 
         .t-label { 
-            text-transform: uppercase; 
-            letter-spacing: 0.2em; 
+            text-transform: uppercase; letter-spacing: 0.2em; 
             font-size: 13px; 
             font-weight: 700; 
             margin-bottom: 8px;
             color: var(--bg-cream-parchment);
         }
         .t-desc { 
-            font-family: var(--font-header); 
-            font-style: italic; 
+            font-family: var(--font-header); font-style: italic; 
             font-size: 22px; 
             line-height: 1.2;
         }
@@ -336,7 +334,6 @@
         .footer-nav-list li a { color: white; text-decoration: none; transition: var(--transition-smooth); cursor: pointer; }
         .footer-nav-list li a:hover { color: var(--primary-terracotta); opacity: 1; }
 
-        /* Estilos específicos para links sociais no rodapé */
         .footer-social-link { color: inherit; text-decoration: none; transition: var(--transition-smooth); }
         .footer-social-link:hover { color: var(--primary-terracotta); opacity: 1; }
 
@@ -463,11 +460,11 @@
                 </div>
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
-                    <div class="t-label"><span lang="pt">Casamento</span><span lang="en">Wedding</span></div>
-                    <div class="t-desc"><span lang="pt">O Grande Dia</span><span lang="en">The Big Day</span></div>
+                    <div class="t-label"><span lang="pt">Espaço</span><span lang="en">Space</span></div>
+                    <div class="t-desc"><span lang="pt">24 dentro + 24 fora</span><span lang="en">24 inside + 24 outside</span></div>
                 </div>
                 <div class="timeline-item">
-                    <div class="t-dot">24A</div>
+                    <div class="t-dot">24</div>
                     <div class="t-label"><span lang="pt">Destino</span><span lang="en">Destiny</span></div>
                     <div class="t-desc"><span lang="pt">Número da Porta</span><span lang="en">Door Number</span></div>
                 </div>
@@ -476,22 +473,11 @@
 
         <div class="story-b">
             <div>
-                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="pt">Da Herança de Família à Massa Fina e Crocante</h3>
-                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="en">From Family Heritage to Thin and Crispy Crust</h3>
+                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="pt">De Cabeleireiro a Pizzaria</h3>
+                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="en">From Hair Salon to Pizzeria</h3>
                 
-                <div lang="pt">
-                    <p>Onde hoje saem pizzas de inspiração romana, finas e crocantes, durante quase 50 anos funcionou o Salão do Restelo. O número 24 da Rua Duarte Pacheco Pereira era a casa da "Dona Tina", mas em 2020 a tesoura deu lugar à farinha quando a sua filha, Inês Baptista, decidiu transformar o espaço da família num refúgio gastronómico.</p>
-                    <p>O Ventiquattro nasceu de uma amizade e de uma ideia que surgiu durante umas férias em Aljezur. Inês e o seu sócio, Carlos Serra, quiseram trazer para o Restelo o sabor autêntico de Itália, trabalhando com ingredientes premium — como a ventricina e a mozzarella italiana — em receitas onde tudo é feito de raiz, do pesto às focaccias.</p>
-                    <p>O nome pareceu óbvio, mas o destino confirmou-o: estamos no número 24, temos 24 lugares no interior, outros 24 na esplanada e, curiosamente, ambos os fundadores celebram o aniversário no dia 24.</p>
-                    <p>Mais do que uma pizzaria, somos um ponto de encontro no bairro onde a tradição se sente em cada detalhe e o carinho passa de geração em geração. Benvenuti al Ventiquattro!</p>
-                </div>
-
-                <div lang="en">
-                    <p>Where Roman-inspired, thin, and crispy pizzas are served today, the Salão do Restelo operated for nearly 50 years. Number 24 Rua Duarte Pacheco Pereira was "Dona Tina's" home, but in 2020, scissors gave way to flour when her daughter, Inês Baptista, decided to transform the family space into a gastronomic haven.</p>
-                    <p>Ventiquattro was born from a friendship and an idea that emerged during a vacation in Aljezur. Inês and her partner, Carlos Serra, wanted to bring the authentic taste of Italy to Restelo, working with premium ingredients — such as ventricina and Italian mozzarella — in recipes where everything is made from scratch, from pesto to focaccias.</p>
-                    <p>The name seemed obvious, but destiny confirmed it: we are at number 24, we have 24 seats inside, another 24 on the terrace, and curiously, both founders celebrate their birthdays on the 24th.</p>
-                    <p>More than just a pizzeria, we are a neighborhood meeting point where tradition is felt in every detail and care is passed from generation to generation. Benvenuti al Ventiquattro!</p>
-                </div>
+                <p lang="pt">Durante 49 anos, este espaço foi o Salão do Restelo da D. Tina. Hoje, a filha Inês continua o legado, trocando secadores por um forno de pizza artesanal.</p>
+                <p lang="en">For 49 years, this space was D. Tina's Restelo Salon. Today, her daughter Inês continues the legacy, swapping hairdryers for an artisan pizza oven.</p>
                 
                 <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="pt">Na foto: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
                 <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="en">Pictured: Inês and Carlos, the faces behind Ventiquattro.</p>
@@ -611,7 +597,7 @@
             <h3 style="font-family:var(--font-header); font-style:italic; color:var(--primary-terracotta); margin-bottom:15px;">
                 <span lang="pt">Como nos encontrar</span><span lang="en">How to find us</span>
             </h3>
-            <p style="margin-bottom:20px;">Rua Duarte Pacheco Pereira 24A,<br>1400-140 Lisboa (Restelo)</p>
+            <p style="margin-bottom:20px;">Rua Duarte Pacheco Pereira 24,<br>1400-140 Lisboa (Restelo)</p>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; border-top:1px solid rgba(255,255,255,0.3); padding-top:20px;">
                 <div>
                     <p style="font-weight:700; color:var(--primary-terracotta);"><span lang="pt">Almoço</span><span lang="en">Lunch</span></p>
@@ -630,8 +616,8 @@
         <div class="footer-grid">
             <div>
                 <img src="logoventi.jpeg" alt="Ventiquattro Logo" class="footer-logo-img">
-                <p style="font-size:14px; opacity:0.8;" lang="pt">O número que nos escolheu.<br>R. Duarte Pacheco Pereira 24A</p>
-                <p style="font-size:14px; opacity:0.8;" lang="en">The number that chose us.<br>R. Duarte Pacheco Pereira 24A</p>
+                <p style="font-size:14px; opacity:0.8;" lang="pt">O número que nos escolheu.<br>R. Duarte Pacheco Pereira 24</p>
+                <p style="font-size:14px; opacity:0.8;" lang="en">The number that chose us.<br>R. Duarte Pacheco Pereira 24</p>
             </div>
             <div>
                 <h4 style="color:var(--primary-terracotta); margin-bottom:15px;">Menu</h4>
@@ -654,7 +640,7 @@
             </div>
         </div>
         <p style="text-align:center; font-family:var(--font-header); font-style:italic; font-size:11px; opacity:0.4; margin-top:40px;">
-            Inês's birthday · Carlos's birthday · Wedding anniversary · Door number · Ventiquattro.
+            Inês's birthday · Carlos's birthday · 24 seats inside · 24 seats outside · Door number 24 · Ventiquattro.
         </p>
         <div class="bottom-bar">
             © 2026 Ventiquattro. Restelo, Lisboa. <span lang="pt">Todos os direitos reservados.</span><span lang="en">All rights reserved.</span>
