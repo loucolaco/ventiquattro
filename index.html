@@ -34,7 +34,6 @@
         [lang="en"] { display: none; }
         body.lang-en [lang="en"] { display: inline; }
         body.lang-en [lang="pt"] { display: none; }
-        /* Para elementos de bloco */
         body.lang-en div[lang="en"], body.lang-en p[lang="en"], body.lang-en h1[lang="en"], body.lang-en h2[lang="en"], body.lang-en h3[lang="en"] { display: block; }
 
         /* --- STICKY NAV --- */
@@ -51,10 +50,11 @@
         .nav-logo-img { height: 40px; width: auto; vertical-align: middle; transition: var(--transition-smooth); }
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { 
-            text-decoration: none; color: var(--text-near-black); font-size: 14px; font-weight: 500; 
+            text-decoration: none; color: white; font-size: 14px; font-weight: 500; 
             transition: color 0.2s;
         }
-        .nav-links a:hover { color: var(--primary-terracotta); }
+        nav.scrolled .nav-links a { color: var(--text-near-black); }
+        .nav-links a:hover { color: var(--primary-terracotta) !important; }
 
         .lang-btn {
             background: transparent;
@@ -77,8 +77,11 @@
             border-radius: 50px; text-decoration: none; font-family: var(--font-header);
             font-style: italic; font-size: 14px; transition: transform 0.2s;
         }
-        .mobile-toggle { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
-        .mobile-toggle span { width: 25px; height: 2px; background: var(--secondary-olive); }
+        
+        /* MOBILE MENU TOGGLE */
+        .mobile-toggle { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1001; }
+        .mobile-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
+        nav.scrolled .mobile-toggle span { background: var(--secondary-olive); }
 
         /* --- HERO COM VIDEO --- */
         .hero-section {
@@ -136,7 +139,6 @@
         .tab-btn { padding: 10px 20px; border-radius: 50px; border: 1.5px solid var(--secondary-olive); background: transparent; cursor: pointer; font-weight: 600; font-size: 14px; transition: var(--transition-smooth); }
         .tab-btn.active { background: var(--primary-terracotta); color: white; border-color: var(--primary-terracotta); }
         
-        /* --- MENU SLIDESHOW --- */
         .menu-slideshow {
             max-width: 1000px;
             height: 400px;
@@ -208,7 +210,15 @@
         .bottom-bar { text-align: center; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; margin-top: 50px; opacity: 0.6; }
 
         @media (max-width: 850px) {
-            .nav-links, .nav-cta { display: none; }
+            .nav-links { 
+                display: none; 
+                position: absolute; top: 100%; left: 0; width: 100%; 
+                background: var(--bg-cream-parchment); flex-direction: column; 
+                padding: 20px; gap: 20px; border-bottom: 2px solid var(--primary-terracotta);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { color: var(--text-near-black) !important; font-size: 18px; }
+            .nav-cta { display: none; }
             .mobile-toggle { display: flex; }
             .story-b, .visit-section { grid-template-columns: 1fr; }
             .donos-img { height: 350px; }
@@ -225,15 +235,15 @@
         <a href="#" class="nav-logo">
             <img src="logoventi.jpeg" alt="Ventiquattro Logo" class="nav-logo-img">
         </a>
-        <div class="nav-links">
-            <a href="#menu" style="color: white;">Menu</a>
-            <a href="#story" style="color: white;"><span lang="pt">A Nossa História</span><span lang="en">Our Story</span></a>
-            <a href="#community" style="color: white;"><span lang="pt">Esplanada</span><span lang="en">Terrace</span></a>
-            <a href="#visit" style="color: white;"><span lang="pt">Visite-nos</span><span lang="en">Visit Us</span></a>
+        <div class="nav-links" id="navLinks">
+            <a href="#menu" onclick="closeMenu()">Menu</a>
+            <a href="#story" onclick="closeMenu()"><span lang="pt">A Nossa História</span><span lang="en">Our Story</span></a>
+            <a href="#community" onclick="closeMenu()"><span lang="pt">Esplanada</span><span lang="en">Terrace</span></a>
+            <a href="#visit" onclick="closeMenu()"><span lang="pt">Visite-nos</span><span lang="en">Visit Us</span></a>
             <button class="lang-btn" onclick="toggleLang()">PT/EN</button>
         </div>
         <a href="#visit" class="nav-cta"><span lang="pt">Onde Estamos</span><span lang="en">Find Us</span></a>
-        <div class="mobile-toggle"><span></span><span></span><span></span></div>
+        <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
     </nav>
 
     <!-- HERO WITH VIDEO BACKGROUND -->
@@ -256,7 +266,7 @@
             
             <div class="hero-btns">
                 <a href="#menu" class="btn-primary"><span lang="pt">Ver Menu</span><span lang="en">View Menu</span></a>
-                <a href="https://www.ubereats.com/pt-en/store/ventiquattro/khwOsH9WRcm0qVKkvJ772Q?diningMode=DELIVERY&ps=1&sc=SEARCH_SUGGESTION" target="_blank" class="btn-secondary">
+                <a href="https://www.ubereats.com/pt-en/store/ventiquattro/khwOsH9WRcm0qVKkvJ772Q" target="_blank" class="btn-secondary">
                     <span lang="pt">Pedir via UberEats</span><span lang="en">Order via UberEats</span>
                 </a>
             </div>
@@ -309,7 +319,6 @@
             </div>
         </div>
 
-        <!-- MENU SLIDESHOW -->
         <div class="menu-slideshow">
             <img src="IMG_7355.jpg" class="slide active" alt="Menu Item">
             <img src="IMG_7356.jpg" class="slide" alt="Menu Item">
@@ -446,7 +455,7 @@
                 <h4 style="color:var(--primary-terracotta); margin-bottom:15px;"><span lang="pt">Siga-nos</span><span lang="en">Follow Us</span></h4>
                 <p style="font-size:13px; opacity:0.7;">@pizzaria.ventiquattro</p>
                 <p style="font-size:13px; opacity:0.7; margin-top:10px;">
-                    <a href="https://www.ubereats.com/pt-en/store/ventiquattro/khwOsH9WRcm0qVKkvJ772Q?diningMode=DELIVERY&ps=1&sc=SEARCH_SUGGESTION" target="_blank" style="color: inherit; text-decoration: none;">UberEats Delivery Available</a>
+                    <a href="https://www.ubereats.com/pt-en/store/ventiquattro/khwOsH9WRcm0qVKkvJ772Q" target="_blank" style="color: inherit; text-decoration: none;">UberEats Delivery Available</a>
                 </p>
             </div>
         </div>
@@ -459,31 +468,34 @@
     </footer>
 
     <script>
-        // Função para alternar língua
+        // Toggle Language
         function toggleLang() {
             const body = document.body;
-            if (body.classList.contains('lang-pt')) {
-                body.classList.remove('lang-pt');
-                body.classList.add('lang-en');
-            } else {
-                body.classList.remove('lang-en');
-                body.classList.add('lang-pt');
-            }
+            body.classList.toggle('lang-en');
+            body.classList.toggle('lang-pt');
         }
 
         // Navbar scroll effect
         window.onscroll = function() {
             var nav = document.getElementById('navbar');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
             if (window.pageYOffset > 100) {
                 nav.classList.add('scrolled');
-                navLinks.forEach(link => link.style.color = 'var(--text-near-black)');
             } else {
                 nav.classList.remove('scrolled');
-                navLinks.forEach(link => link.style.color = 'white');
             }
         };
+
+        // Mobile Menu Toggle Logic
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        function closeMenu() {
+            navLinks.classList.remove('active');
+        }
 
         // Menu Switcher Logic
         function switchMenu(categoryId) {
