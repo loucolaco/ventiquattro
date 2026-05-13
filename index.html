@@ -127,91 +127,7 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* --- STORY A (TIMELINE DINÂMICA) --- */
-        .story-a { 
-            background: var(--primary-terracotta); 
-            color: white; 
-            padding: var(--section-padding); 
-            text-align: center; 
-            position: relative; 
-        }
-        .story-timeline { 
-            display: flex; 
-            justify-content: center; 
-            align-items: flex-start; 
-            max-width: 1100px; 
-            margin: 80px auto 40px; 
-            position: relative; 
-            gap: 20px;
-        }
-        .story-timeline::before {
-            content: "";
-            position: absolute;
-            top: 25px;
-            left: 5%;
-            right: 5%;
-            height: 1px;
-            background: rgba(250, 246, 238, 0.4);
-            z-index: 0;
-        }
-        .timeline-item { 
-            position: relative; 
-            z-index: 1; 
-            flex: 1; 
-            transition: var(--transition-smooth);
-        }
-        .timeline-item:hover { transform: translateY(-10px); }
-        
-        .t-dot { 
-            width: 50px; height: 50px;
-            background: var(--bg-cream-parchment); 
-            border-radius: 50%; 
-            margin: 0 auto 25px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            font-family: var(--font-header);
-            color: var(--primary-terracotta);
-            font-weight: bold;
-            font-size: 18px;
-            box-shadow: 0 0 0 0px rgba(250, 246, 238, 0.3);
-            animation: pulse-dot 3s infinite;
-            transition: var(--transition-smooth);
-        }
-        .timeline-item:hover .t-dot {
-            background: var(--secondary-olive);
-            color: white;
-            box-shadow: 0 0 0 12px rgba(250, 246, 238, 0.2);
-        }
-        
-        @keyframes pulse-dot {
-            0% { box-shadow: 0 0 0 0px rgba(250, 246, 238, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(250, 246, 238, 0); }
-            100% { box-shadow: 0 0 0 0px rgba(250, 246, 238, 0); }
-        }
-
-        .t-label { 
-            text-transform: uppercase; 
-            letter-spacing: 0.2em; 
-            font-size: 13px; 
-            font-weight: 700; 
-            margin-bottom: 8px;
-            color: var(--bg-cream-parchment);
-        }
-        .t-desc { 
-            font-family: var(--font-header); 
-            font-style: italic; 
-            font-size: 22px; 
-            line-height: 1.2;
-        }
-
-        /* --- STORY B --- */
-        .story-b { padding: var(--section-padding); max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .story-image-container { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .donos-img { width: 100%; height: 450px; object-fit: cover; display: block; filter: sepia(20%); transition: transform 0.5s ease; }
-        .story-image-container:hover .donos-img { transform: scale(1.05); }
-
-        /* --- SECÇÃO: ESSÊNCIA --- */
+        /* --- STORY SECTIONS --- */
         .essence-section {
             padding: var(--section-padding);
             background: var(--secondary-olive);
@@ -251,11 +167,49 @@
             margin-bottom: 15px;
             color: var(--primary-terracotta);
         }
-        .essence-card p {
-            font-size: 15px;
-            opacity: 0.8;
-            line-height: 1.6;
+        .essence-card p { font-size: 15px; opacity: 0.8; line-height: 1.6; }
+
+        .story-a { 
+            background: var(--primary-terracotta); 
+            color: white; 
+            padding: var(--section-padding); 
+            text-align: center; 
+            position: relative; 
         }
+        .story-timeline { 
+            display: flex; justify-content: center; align-items: flex-start; max-width: 1100px; 
+            margin: 80px auto 40px; position: relative; gap: 20px;
+        }
+        .story-timeline::before {
+            content: ""; position: absolute; top: 25px; left: 5%; right: 5%; height: 1px;
+            background: rgba(250, 246, 238, 0.4); z-index: 0;
+        }
+        .timeline-item { position: relative; z-index: 1; flex: 1; transition: var(--transition-smooth); }
+        .t-dot { 
+            width: 50px; height: 50px; background: var(--bg-cream-parchment); border-radius: 50%; 
+            margin: 0 auto 25px; display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-header); color: var(--primary-terracotta); font-weight: bold; font-size: 18px;
+            animation: pulse-dot 3s infinite;
+        }
+        @keyframes pulse-dot {
+            0% { box-shadow: 0 0 0 0px rgba(250, 246, 238, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(250, 246, 238, 0); }
+            100% { box-shadow: 0 0 0 0px rgba(250, 246, 238, 0); }
+        }
+        .t-label { text-transform: uppercase; letter-spacing: 0.2em; font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--bg-cream-parchment); }
+        .t-desc { font-family: var(--font-header); font-style: italic; font-size: 22px; line-height: 1.2; }
+
+        /* --- NOVO DESIGN TEXTO HISTORIA --- */
+        .story-b { padding: var(--section-padding); max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: start; }
+        .story-text-content { font-size: 16px; color: var(--text-near-black); line-height: 1.8; }
+        .story-text-content p { margin-bottom: 20px; }
+        .story-highlight-box { 
+            background: var(--primary-terracotta-low); padding: 25px; border-left: 4px solid var(--primary-terracotta); 
+            margin: 30px 0; font-family: var(--font-header); font-style: italic; font-size: 18px; color: var(--secondary-olive);
+        }
+        .story-image-container { position: sticky; top: 120px; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .donos-img { width: 100%; height: 500px; object-fit: cover; display: block; filter: sepia(10%); transition: transform 0.5s ease; }
+        .story-image-container:hover .donos-img { transform: scale(1.05); }
 
         /* --- MENU SECTION --- */
         .menu-section { padding: var(--section-padding); background: var(--bg-cream-parchment); position: relative; }
@@ -263,29 +217,13 @@
         .tab-btn { padding: 10px 20px; border-radius: 50px; border: 1.5px solid var(--secondary-olive); background: transparent; cursor: pointer; font-weight: 600; font-size: 14px; transition: var(--transition-smooth); }
         .tab-btn.active { background: var(--primary-terracotta); color: white; border-color: var(--primary-terracotta); }
         
-        .menu-slideshow {
-            max-width: 1000px;
-            height: 400px;
-            margin: 0 auto 50px;
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow-subtle);
-        }
-        .slide {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            object-fit: cover;
-        }
+        .menu-slideshow { max-width: 1000px; height: 400px; margin: 0 auto 50px; position: relative; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow-subtle); }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; object-fit: cover; }
         .slide.active { opacity: 1; }
 
         .menu-container { max-width: 1200px; margin: 0 auto; }
         .menu-category-content { display: none; animation: fadeIn 0.4s ease forwards; }
         .menu-category-content.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-
         .menu-card { background: white; padding: 25px; border-radius: 12px; border-top: 3px solid var(--primary-terracotta); box-shadow: var(--shadow-subtle); display: flex; flex-direction: column; justify-content: space-between; }
         .menu-card h3 { font-family: var(--font-header); font-size: 18px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: baseline; }
         .menu-card .price { color: var(--primary-terracotta); font-weight: 700; font-size: 16px; margin-left: 10px; }
@@ -293,7 +231,7 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- SOCIAL --- */
+        /* --- SOCIAL & VISIT --- */
         .social-proof { background: var(--secondary-olive); color: white; padding: var(--section-padding); overflow: hidden; position: relative; }
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 40px auto; }
         .review-card { background: rgba(0,0,0,0.2); padding: 25px; border-radius: 12px; font-size: 14px; }
@@ -301,29 +239,13 @@
         .ticker { display: flex; white-space: nowrap; animation: moveTicker 30s linear infinite; }
         .ticker span { color: var(--primary-terracotta); margin-right: 50px; font-family: var(--font-header); font-style: italic; }
 
-        /* --- VISIT SECTION --- */
         .visit-section { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: var(--section-padding); }
         .visit-card { background: white; padding: 40px; border-radius: 14px; border-top: 3px solid var(--primary-terracotta); box-shadow: var(--shadow-subtle); text-align: center; }
         .visit-info { 
-            position: relative;
-            background-image: url('IMG_7352.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white; 
-            padding: 40px; 
-            border-radius: 14px; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center;
-            overflow: hidden;
+            position: relative; background-image: url('IMG_7352.jpg'); background-size: cover; background-position: center;
+            color: white; padding: 40px; border-radius: 14px; display: flex; flex-direction: column; justify-content: center; overflow: hidden;
         }
-        .visit-info::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.65);
-            z-index: 1;
-        }
+        .visit-info::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.65); z-index: 1; }
         .visit-info > * { position: relative; z-index: 2; }
 
         /* --- FOOTER --- */
@@ -331,38 +253,24 @@
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
         .footer-logo-img { height: 60px; width: auto; margin-bottom: 15px; border-radius: 50%; opacity: 0.9; }
         .footer-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 300px; font-family: var(--font-header); font-style: italic; color: var(--primary-terracotta); opacity: 0.04; pointer-events: none; }
-        .bottom-bar { text-align: center; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; margin-top: 50px; opacity: 0.6; }
-        
         .footer-nav-list { list-style: none; font-size: 13px; opacity: 0.7; line-height: 2; }
         .footer-nav-list li a { color: white; text-decoration: none; transition: var(--transition-smooth); cursor: pointer; }
         .footer-nav-list li a:hover { color: var(--primary-terracotta); opacity: 1; }
-
-        /* Estilos específicos para links sociais no rodapé */
-        .footer-social-link { color: inherit; text-decoration: none; transition: var(--transition-smooth); }
-        .footer-social-link:hover { color: var(--primary-terracotta); opacity: 1; }
+        .bottom-bar { text-align: center; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; margin-top: 50px; opacity: 0.6; }
 
         @media (max-width: 850px) {
             .nav-links { 
-                display: none; 
-                position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-                background: var(--bg-cream-parchment); flex-direction: column; 
-                justify-content: center; align-items: center;
-                padding: 40px; gap: 30px; z-index: 1001;
-                opacity: 0; transition: opacity 0.3s ease;
+                display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+                background: var(--bg-cream-parchment); flex-direction: column; justify-content: center; align-items: center;
+                padding: 40px; gap: 30px; z-index: 1001; opacity: 0; transition: opacity 0.3s ease;
             }
             .nav-links.active { display: flex; opacity: 1; }
-            .nav-links a { color: var(--text-near-black) !important; font-size: 24px; font-family: var(--font-header); }
-            .nav-links .lang-btn { border-color: var(--primary-terracotta); color: var(--primary-terracotta); font-size: 16px; padding: 10px 20px; }
-            .nav-cta { display: none; }
             .mobile-toggle { display: flex; }
-            .story-b, .visit-section { grid-template-columns: 1fr; }
-            .essence-grid { grid-template-columns: 1fr; }
+            .story-b, .visit-section, .essence-grid { grid-template-columns: 1fr; }
+            .story-image-container { position: static; }
             .donos-img { height: 350px; }
-            .visit-info { min-height: 300px; }
-            .menu-slideshow { height: 250px; }
-            .story-timeline { flex-direction: column; gap: 45px; align-items: center; margin: 50px auto; }
+            .story-timeline { flex-direction: column; gap: 45px; align-items: center; }
             .story-timeline::before { left: 50%; width: 1px; top: 0; bottom: 0; height: auto; }
-            .t-desc { font-size: 18px; }
         }
 
         @keyframes moveTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -385,49 +293,34 @@
         <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
     </nav>
 
-    <!-- HERO WITH VIDEO BACKGROUND -->
+    <!-- HERO -->
     <section class="hero-section">
         <video autoplay muted loop playsinline id="hero-video">
             <source src="video.mp4" type="video/mp4">
-            O seu browser não suporta vídeos.
         </video>
         <div class="hero-overlay"></div>
         <div class="texture-overlay"></div>
-        
         <div class="hero-content">
             <img src="logoventi.jpeg" alt="Ventiquattro Logo" class="hero-logo-main">
             <p style="color:var(--primary-terracotta) !important; font-family:var(--font-header); font-style:italic; font-size:12px; letter-spacing:0.1em; margin-bottom:10px;">RESTELO · LISBOA · EST. 2020</p>
             <h1 class="hero-headline" lang="pt">O número que nos escolheu.<br>A pizza que escolhemos de volta.</h1>
             <h1 class="hero-headline" lang="en">The number that chose us.<br>The pizza we chose back.</h1>
-            
-            <p style="max-width:500px; margin:0 auto 30px;" lang="pt">Pizza artesanal de massa fina, entradas italianas e uma esplanada coberta no coração do Restelo.</p>
-            <p style="max-width:500px; margin:0 auto 30px;" lang="en">Thin-crust artisan pizza, Italian starters and a covered terrace in the heart of Restelo.</p>
-            
             <div class="hero-btns">
                 <a href="#menu" class="btn-primary"><span lang="pt">Ver Menu</span><span lang="en">View Menu</span></a>
-                <a href="https://www.ubereats.com/pt-en/store/ventiquattro/khwOsH9WRcm0qVKkvJ772Q" target="_blank" class="btn-secondary">
-                    <span lang="pt">Pedir via UberEats</span><span lang="en">Order via UberEats</span>
-                </a>
+                <a href="https://www.ubereats.com/pt-en/store/ventiquattro/khwOsH9WRcm0qVKkvJ772Q" target="_blank" class="btn-secondary">UberEats</a>
             </div>
         </div>
     </section>
 
-    <!-- STORY (REORDERED SECTION) -->
+    <!-- STORY -->
     <section id="story">
-        <!-- 1. ESSÊNCIA SECTION -->
+        <!-- 1. ESSÊNCIA -->
         <div class="essence-section">
             <div class="texture-overlay"></div>
             <div class="essence-container">
                 <h2 style="font-family:var(--font-header); font-style:italic; font-size:36px; margin-bottom:20px;">
                     <span lang="pt">A Nossa Essência</span><span lang="en">Our Essence</span>
                 </h2>
-                <p style="max-width:750px; margin:0 auto; font-size:18px; opacity:0.9;" lang="pt">
-                    No coração do Restelo, a Ventiquattro nasceu para ser mais do que uma pizzaria — um ponto de encontro onde o bairro se cruza naturalmente.
-                </p>
-                <p style="max-width:750px; margin:0 auto; font-size:18px; opacity:0.9;" lang="en">
-                    In the heart of Restelo, Ventiquattro was born to be more than just a pizzeria — a meeting point where the neighborhood naturally crosses paths.
-                </p>
-
                 <div class="essence-grid">
                     <div class="essence-card">
                         <h3 lang="pt">Raízes Italianas</h3><h3 lang="en">Italian Roots</h3>
@@ -448,14 +341,11 @@
             </div>
         </div>
 
-        <!-- 2. STORY A (TIMELINE SECTION) -->
+        <!-- 2. TIMELINE -->
         <div class="story-a">
             <div class="texture-overlay"></div>
             <h2 style="font-family:var(--font-header); font-style:italic; font-size:36px; margin-bottom:15px;" lang="pt">Quatro coincidências. Um destino.</h2>
             <h2 style="font-family:var(--font-header); font-style:italic; font-size:36px; margin-bottom:15px;" lang="en">Four coincidences. One destiny.</h2>
-            <p style="max-width:650px; margin:0 auto; opacity:0.9; font-size: 17px;" lang="pt">Dizem que nada acontece por acaso. Na nossa história, o 24 foi o fio condutor.</p>
-            <p style="max-width:650px; margin:0 auto; opacity:0.9; font-size: 17px;" lang="en">They say nothing happens by chance. In our story, 24 was the guiding thread.</p>
-            
             <div class="story-timeline">
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
@@ -469,28 +359,43 @@
                 </div>
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
-                    <div class="t-label"><span lang="pt">Casamento</span><span lang="en">Wedding</span></div>
-                    <div class="t-desc"><span lang="pt">O Grande Dia</span><span lang="en">The Big Day</span></div>
+                    <div class="t-label">Casamento</div>
+                    <div class="t-desc">O Grande Dia</div>
                 </div>
                 <div class="timeline-item">
                     <div class="t-dot">24A</div>
-                    <div class="t-label"><span lang="pt">Destino</span><span lang="en">Destiny</span></div>
-                    <div class="t-desc"><span lang="pt">Número da Porta</span><span lang="en">Door Number</span></div>
+                    <div class="t-label">Destino</div>
+                    <div class="t-desc">Número da Porta</div>
                 </div>
             </div>
         </div>
 
-        <!-- 3. STORY B -->
+        <!-- 3. HISTÓRIA DETALHADA -->
         <div class="story-b">
-            <div>
-                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="pt">De Cabeleireiro a Pizzaria</h3>
-                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="en">From Hair Salon to Pizzeria</h3>
+            <div class="story-text-content">
+                <h3 style="font-family:var(--font-header); font-style:italic; font-size:32px; color:var(--primary-terracotta); margin-bottom:25px;" lang="pt">
+                    Da Herança de Família à Massa Fina e Crocante
+                </h3>
+                <div lang="pt">
+                    <p>Onde hoje saem pizzas de inspiração romana, finas e crocantes, durante quase 50 anos funcionou o <strong>Salão do Restelo</strong>. O número 24 da Rua Duarte Pacheco Pereira era a casa da "Dona Tina", mas em 2020 a tesoura deu lugar à farinha quando a sua filha, Inês Baptista, decidiu transformar o espaço da família num refúgio gastronómico.</p>
+                    
+                    <p>O <strong>Ventiquattro</strong> nasceu de uma amizade e de uma ideia que surgiu durante umas férias em Aljezur. Inês e o seu sócio, Carlos Serra, quiseram trazer para o Restelo o sabor autêntico de Itália, trabalhando com ingredientes premium — como a ventricina e a mozzarella italiana — em receitas onde tudo é feito de raiz, do pesto às focaccias.</p>
+                    
+                    <div class="story-highlight-box">
+                        "O nome pareceu óbvio, mas o destino confirmou-o: estamos no número 24, temos 24 lugares no interior, outros 24 na esplanada e, curiosamente, ambos os fundadores celebram o aniversário no dia 24."
+                    </div>
+
+                    <p>Mais do que uma pizzaria, somos um ponto de encontro no bairro onde a tradição se sente em cada detalhe e o carinho passa de geração em geração.</p>
+                    
+                    <h4 style="font-family:var(--font-header); font-style:italic; font-size:24px; color:var(--primary-terracotta); margin-top:20px;">Benvenuti al Ventiquattro!</h4>
+                </div>
                 
-                <p lang="pt">Durante 49 anos, este espaço foi o Salão do Restelo da D. Tina. Hoje, a filha Inês continua o legado, trocando secadores por um forno de pizza artesanal.</p>
-                <p lang="en">For 49 years, this space was D. Tina's Restelo Salon. Today, her daughter Inês continues the legacy, swapping hairdryers for an artisan pizza oven.</p>
-                
-                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="pt">Na foto: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
-                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="en">Pictured: Inês and Carlos, the faces behind Ventiquattro.</p>
+                <!-- Placeholder para versão EN se necessário futuramente -->
+                <div lang="en">
+                    <p>Where Roman-inspired pizzas, thin and crispy, come out today, the <strong>Salão do Restelo</strong> operated for nearly 50 years. Number 24 on Rua Duarte Pacheco Pereira was home to "Dona Tina," but in 2020, scissors gave way to flour when her daughter, Inês Baptista, decided to transform the family space into a gastronomic refuge.</p>
+                    <p>Ventiquattro was born from a friendship and an idea that arose during a holiday in Aljezur. Inês and her partner, Carlos Serra, wanted to bring the authentic flavor of Italy to Restelo, working with premium ingredients and recipes made from scratch.</p>
+                    <h4 style="font-family:var(--font-header); font-style:italic; font-size:24px; color:var(--primary-terracotta); margin-top:20px;">Benvenuti al Ventiquattro!</h4>
+                </div>
             </div>
             <div class="story-image-container">
                 <img src="donos.webp" alt="Inês e Carlos - Donos da Ventiquattro" class="donos-img">
@@ -516,110 +421,27 @@
             <img src="IMG_7355.jpg" class="slide active" alt="Menu Item">
             <img src="IMG_7356.jpg" class="slide" alt="Menu Item">
             <img src="IMG_7357.jpg" class="slide" alt="Menu Item">
-            <img src="IMG_7358.jpg" class="slide" alt="Menu Item">
-            <img src="IMG_7359.jpg" class="slide" alt="Menu Item">
-            <img src="IMG_7360.jpg" class="slide" alt="Menu Item">
-            <img src="IMG_7361.jpg" class="slide" alt="Menu Item">
         </div>
 
         <div class="menu-container">
+            <!-- As categorias de menu aqui listadas (entradas, saladas, etc.) -->
             <div id="entradas" class="menu-category-content active">
-                <div class="menu-card"><h3>Croquetes <span class="price">4,50€</span></h3><p><span lang="pt">Com mostarda e mel (3 unidades)</span><span lang="en">With mustard and honey (3 units)</span></p></div>
-                <div class="menu-card"><h3>Carpaccio de salmão <span class="price">11,50€</span></h3><p><span lang="pt">Rucula, lima, alcaparras e pesto</span><span lang="en">Arugula, lime, capers and pesto</span></p></div>
-                <div class="menu-card"><h3>Carpaccio de vitela <span class="price">9,50€</span></h3><p><span lang="pt">Rucula e lascas de parmesão</span><span lang="en">Arugula and parmesan shavings</span></p></div>
-                <div class="menu-card"><h3>Pão de Alho <span class="price">4,50€</span></h3><p><span lang="pt">Em pão da casa, mozzarella fior di latte, tomate, manjericão e azeite de alho</span><span lang="en">In house bread, fior di latte mozzarella, tomato, basil and garlic oil</span></p></div>
-                <div class="menu-card"><h3>Bruschetta do Chefe <span class="price">5,90€</span></h3><p><span lang="pt">Pão da casa, mozzarella bufala, presunto de Parma, rucula e tomate cereja</span><span lang="en">House bread, buffalo mozzarella, Parma ham, arugula and cherry tomato</span></p></div>
-                <div class="menu-card"><h3>Bruschetta de Bacalhau <span class="price">6,50€</span></h3><p><span lang="pt">Pão da casa, molho de tomate, peperoncini e carpaccio de bacalhau</span><span lang="en">House bread, tomato sauce, peperoncini and cod carpaccio</span></p></div>
-                <div class="menu-card"><h3>Crostini de Salmão <span class="price">6,50€</span></h3><p><span lang="pt">Pão da casa, mozzarella bufala, salmão marinado, pesto, rucula e lima</span><span lang="en">House bread, buffalo mozzarella, marinated salmon, pesto, arugula and lime</span></p></div>
-                <div class="menu-card"><h3>Foccacia <span class="price">4,00€</span></h3><p><span lang="pt">Azeite de alho e alecrim</span><span lang="en">Garlic oil and rosemary</span></p></div>
+                <div class="menu-card"><h3>Croquetes <span class="price">4,50€</span></h3><p>Com mostarda e mel (3 unidades)</p></div>
+                <div class="menu-card"><h3>Carpaccio de salmão <span class="price">11,50€</span></h3><p>Rucula, lima, alcaparras e pesto</p></div>
+                <div class="menu-card"><h3>Pão de Alho <span class="price">4,50€</span></h3><p>Mozzarella fior di latte, manjericão e azeite de alho</p></div>
             </div>
-
             <div id="saladas" class="menu-category-content">
-                <div class="menu-card"><h3>Arrifana * <span class="price">11,90€</span></h3><p><span lang="pt">Alfaces, queijo de cabra alentejano, tomate seco, presunto, azeitonas</span><span lang="en">Lettuce, goat cheese, dried tomato, ham, olives</span></p></div>
-                <div class="menu-card"><h3>Salmão * <span class="price">12,90€</span></h3><p><span lang="pt">Rucula, abacate, bufala, salmão marinado e pesto</span><span lang="en">Arugula, avocado, buffalo mozzarella, marinated salmon and pesto</span></p></div>
-                <div class="menu-card"><h3>Ventiquattro * <span class="price">10,90€</span></h3><p><span lang="pt">Alfaces, presunto de parma, tomate seco e lascas de parmesão</span><span lang="en">Lettuce, parma ham, dried tomato and parmesan shavings</span></p></div>
-                <div class="menu-card"><h3>Verão * <span class="price">12,90€</span></h3><p><span lang="pt">Alfaces, queijo pecurino, presunto de parma e figos</span><span lang="en">Lettuce, pecorino cheese, parma ham and figs</span></p></div>
-                <div class="menu-card"><h3>Aljezur <span class="price">12,90€</span></h3><p><span lang="pt">Alfaces, tomate cereja, peperoncini, frango assado, molho de limão, mel e mostarda dijon</span><span lang="en">Lettuce, cherry tomato, peperoncini, roast chicken, lemon, honey and consultant dijon</span></p></div>
-                <div class="menu-card"><h3>Burrata <span class="price">11,50€</span></h3><p><span lang="pt">Folhas de alface, tomate cereja, manjericão e torradinhas</span><span lang="en">Lettuce leaves, cherry tomato, basil and toasties</span></p></div>
+                <div class="menu-card"><h3>Arrifana <span class="price">11,90€</span></h3><p>Queijo de cabra, tomate seco, presunto e azeitonas</p></div>
             </div>
-
             <div id="massas" class="menu-category-content">
-                <div class="menu-card"><h3>Lasanha de carne <span class="price">10,50€</span></h3><p><span lang="pt">Receita clássica artesanal</span><span lang="en">Classic artisan recipe</span></p></div>
-                <div class="menu-card"><h3>Lasanha vegetariana <span class="price">10,50€</span></h3><p><span lang="pt">Legumes frescos e bechamel da casa</span><span lang="en">Fresh vegetables and house bechamel</span></p></div>
-                <div class="menu-card"><h3>Linguini Nero com camarão <span class="price">14,90€</span></h3><p><span lang="pt">Molho de tomate, camarão, salsa e alho</span><span lang="en">Tomato sauce, shrimp, parsley and garlic</span></p></div>
-                <div class="menu-card"><h3>Fusilli al pesto <span class="price">11,90€</span></h3><p><span lang="pt">Creme de burrata, rucula, tomate cereja, pesto e pinhões</span><span lang="en">Burrata cream, arugula, cherry tomato, pesto and pine nuts</span></p></div>
-                <div class="menu-card"><h3>Fusilli bambino <span class="price">8,90€</span></h3><p><span lang="pt">Molho de tomate, tomate cereja, frango assado</span><span lang="en">Tomato sauce, cherry tomato, roast chicken</span></p></div>
+                <div class="menu-card"><h3>Lasanha de carne <span class="price">10,50€</span></h3><p>Receita clássica artesanal</p></div>
             </div>
-
             <div id="pizzas" class="menu-category-content">
-                <div class="menu-card"><h3>Ventiquattro ★ <span class="price">14,50€</span></h3><p><span lang="pt">Mozzarella fior di latte, rúcula, búfala e tomate cereja.</span><span lang="en">Fior di latte mozzarella, arugula, buffalo mozzarella and cherry tomato.</span></p></div>
-                <div class="menu-card"><h3>Diavola <span class="price">13,50€</span></h3><p><span lang="pt">Molho de tomate, fior di latte, salame ventricino picante.</span><span lang="en">Tomato sauce, fior di latte, spicy ventricino salami.</span></p></div>
-                <div class="menu-card"><h3>Trufa <span class="price">16,00€</span></h3><p><span lang="pt">Pasta de trufa, mozzarella fior di latte e trufa laminada.</span><span lang="en">Truffle paste, fior di latte mozzarella and laminated truffle.</span></p></div>
-                <div class="menu-card"><h3>Margherita <span class="price">10,50€</span></h3><p><span lang="pt">Tomate, mozzarella fior di latte e manjericão fresco.</span><span lang="en">Tomato, fior di latte mozzarella and fresh basil.</span></p></div>
+                <div class="menu-card"><h3>Ventiquattro ★ <span class="price">14,50€</span></h3><p>Mozzarella fior di latte, rúcula, búfala e tomate cereja.</p></div>
+                <div class="menu-card"><h3>Diavola <span class="price">13,50€</span></h3><p>Molho de tomate, fior di latte, salame picante.</p></div>
             </div>
-
             <div id="tabuas" class="menu-category-content">
-                <div class="menu-card"><h3>Tabua 23 <span class="price">12,90€</span></h3><p><span lang="pt">Presunto de Parma, queijo provolone, tomate cereja, manjericão e cesto de pão</span><span lang="en">Parma ham, provolone cheese, cherry tomato, basil and bread basket</span></p></div>
-                <div class="menu-card"><h3>Tabua 24 <span class="price">22,00€</span></h3><p><span lang="pt">Queijos grana padano, gorgonzola e provolone, presunto de Parma, chouriço, salame ventricino e pão</span><span lang="en">Grana padano, gorgonzola and provolone, Parma ham, chorizo, ventricino salami and bread</span></p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOCIAL & TERRACE -->
-    <section class="social-proof" id="community">
-        <div style="text-align:center;">
-            <h2 style="font-family:var(--font-header); font-style:italic; font-size:32px;"><span lang="pt">O que diz o Restelo</span><span lang="en">What Restelo says</span></h2>
-            <p>4.5 ★ no Google · 250 reviews</p>
-        </div>
-        <div class="reviews-grid">
-            <div class="review-card" lang="pt">"A melhor pizza de massa fina em Lisboa. A Ventiquattro é soberba." - Google Review</div>
-            <div class="review-card" lang="en">"Best thin-crust pizza in Lisbon. Ventiquattro is superb." - Google Review</div>
-            
-            <div class="review-card" lang="pt">"Esplanada aquecida fantástica para as noites de inverno." - Google Review</div>
-            <div class="review-card" lang="en">"Fantastic heated terrace for winter nights." - Google Review</div>
-            
-            <div class="review-card" lang="pt">"Atendimento familiar e qualidade constante. Recomendo a Parma." - Google Review</div>
-            <div class="review-card" lang="en">"Family service and constant quality. I recommend the Parma." - Google Review</div>
-        </div>
-        <div class="ticker-wrap">
-            <div class="ticker">
-                <span lang="pt">MASSA FINA & CROCANTE</span><span lang="en">THIN & CRISPY CRUST</span>
-                <span lang="pt">ESPLANADA AQUECIDA</span><span lang="en">HEATED TERRACE</span>
-                <span>OPEN EVERY DAY</span><span>RESTELO PRIDE</span>
-                <span lang="pt">MASSA FINA & CROCANTE</span><span lang="en">THIN & CRISPY CRUST</span>
-                <span lang="pt">ESPLANADA AQUECIDA</span><span lang="en">HEATED TERRACE</span>
-                <span>OPEN EVERY DAY</span><span>RESTELO PRIDE</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- VISIT SECTION -->
-    <section class="visit-section" id="visit">
-        <div class="visit-card">
-            <h2 style="font-family:var(--font-header); font-style:italic; margin-bottom:15px; color:var(--primary-terracotta);">
-                <span lang="pt">Sem Reservas</span><span lang="en">Walk-ins Welcome</span>
-            </h2>
-            <p style="color:var(--text-muted); margin-bottom:25px;" lang="pt">Não aceitamos reservas. Sinta-se à vontade para aparecer, desfrutar da nossa esplanada e garantimos que terá uma mesa o mais breve possível.</p>
-            <p style="color:var(--text-muted); margin-bottom:25px;" lang="en">We don't take reservations. Feel free to stop by, enjoy our terrace and we'll get you a table as soon as possible.</p>
-            <div style="border-top:1px solid #eee; padding-top:25px;">
-                <p style="font-weight:600; margin-bottom:5px;"><span lang="pt">Dúvidas ou Take-away?</span><span lang="en">Questions or Take-away?</span></p>
-                <a href="tel:+351963974421" style="font-size:24px; color:var(--text-near-black); text-decoration:none; font-family:var(--font-header); font-weight:700;">+351 963 974 421</a>
-            </div>
-        </div>
-        <div class="visit-info">
-            <h3 style="font-family:var(--font-header); font-style:italic; color:var(--primary-terracotta); margin-bottom:15px;">
-                <span lang="pt">Como nos encontrar</span><span lang="en">How to find us</span>
-            </h3>
-            <p style="margin-bottom:20px;">Rua Duarte Pacheco Pereira 24A,<br>1400-140 Lisboa (Restelo)</p>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; border-top:1px solid rgba(255,255,255,0.3); padding-top:20px;">
-                <div>
-                    <p style="font-weight:700; color:var(--primary-terracotta);"><span lang="pt">Almoço</span><span lang="en">Lunch</span></p>
-                    <p style="opacity:1;">12:00 – 15:00</p>
-                </div>
-                <div>
-                    <p style="font-weight:700; color:var(--primary-terracotta);"><span lang="pt">Jantar</span><span lang="en">Dinner</span></p>
-                    <p style="opacity:1;">19:00 – 22:30</p>
-                </div>
+                <div class="menu-card"><h3>Tabua 24 <span class="price">22,00€</span></h3><p>Seleção de queijos e enchidos italianos.</p></div>
             </div>
         </div>
     </section>
@@ -630,8 +452,7 @@
         <div class="footer-grid">
             <div>
                 <img src="logoventi.jpeg" alt="Ventiquattro Logo" class="footer-logo-img">
-                <p style="font-size:14px; opacity:0.8;" lang="pt">O número que nos escolheu.<br>R. Duarte Pacheco Pereira 24A</p>
-                <p style="font-size:14px; opacity:0.8;" lang="en">The number that chose us.<br>R. Duarte Pacheco Pereira 24A</p>
+                <p style="font-size:14px; opacity:0.8;">R. Duarte Pacheco Pereira 24A, Restelo</p>
             </div>
             <div>
                 <h4 style="color:var(--primary-terracotta); margin-bottom:15px;">Menu</h4>
@@ -644,20 +465,14 @@
                 </ul>
             </div>
             <div>
-                <h4 style="color:var(--primary-terracotta); margin-bottom:15px;"><span lang="pt">Siga-nos</span><span lang="en">Follow Us</span></h4>
+                <h4 style="color:var(--primary-terracotta); margin-bottom:15px;">Social</h4>
                 <p style="font-size:13px; opacity:0.7;">
-                    <a href="https://www.instagram.com/pizzaria.ventiquattro/" target="_blank" class="footer-social-link">@pizzaria.ventiquattro</a>
-                </p>
-                <p style="font-size:13px; opacity:0.7; margin-top:10px;">
-                    <a href="https://www.ubereats.com/pt-en/store/ventiquattro/khwOsH9WRcm0qVKkvJ772Q" target="_blank" class="footer-social-link">UberEats Delivery Available</a>
+                    <a href="https://www.instagram.com/pizzaria.ventiquattro/" target="_blank" style="color:white; text-decoration:none;">@pizzaria.ventiquattro</a>
                 </p>
             </div>
         </div>
-        <p style="text-align:center; font-family:var(--font-header); font-style:italic; font-size:11px; opacity:0.4; margin-top:40px;">
-            Inês's birthday · Carlos's birthday · Wedding anniversary · Door number · Ventiquattro.
-        </p>
         <div class="bottom-bar">
-            © 2026 Ventiquattro. Restelo, Lisboa. <span lang="pt">Todos os direitos reservados.</span><span lang="en">All rights reserved.</span>
+            © 2026 Ventiquattro. Restelo, Lisboa.
         </div>
     </footer>
 
@@ -670,16 +485,12 @@
 
         window.onscroll = function() {
             var nav = document.getElementById('navbar');
-            if (window.pageYOffset > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+            if (window.pageYOffset > 100) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
         };
 
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
-
         mobileToggle.addEventListener('click', () => {
             mobileToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
@@ -694,6 +505,7 @@
             const btns = document.querySelectorAll('.tab-btn');
             btns.forEach(btn => btn.classList.remove('active'));
             
+            // Encontra o botão correspondente e ativa-o
             const targetBtn = Array.from(btns).find(btn => btn.getAttribute('onclick').includes(categoryId));
             if (targetBtn) targetBtn.classList.add('active');
             
@@ -701,8 +513,11 @@
             categories.forEach(cat => cat.classList.remove('active'));
             
             const selectedCategory = document.getElementById(categoryId);
-            if (selectedCategory) {
-                selectedCategory.classList.add('active');
+            if (selectedCategory) selectedCategory.classList.add('active');
+            
+            // Scroll suave para o menu se vier do rodapé
+            if (window.location.hash !== '#menu') {
+                document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
             }
         }
 
@@ -715,7 +530,7 @@
                 slides[currentSlide].classList.add('active');
             }
         }
-        setInterval(showNextSlide, 2000);
+        setInterval(showNextSlide, 3000);
     </script>
 </body>
 </html>
