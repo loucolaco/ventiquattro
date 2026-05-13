@@ -128,7 +128,7 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* --- STORY A (TIMELINE) --- */
+        /* --- STORY A (TIMELINE DINÂMICA) --- */
         .story-a { 
             background: var(--primary-terracotta); 
             color: white; 
@@ -140,46 +140,71 @@
             display: flex; 
             justify-content: center; 
             align-items: flex-start; 
-            max-width: 1000px; 
-            margin: 60px auto 20px; 
+            max-width: 1100px; 
+            margin: 80px auto 40px; 
             position: relative;
-            gap: 40px;
+            gap: 20px;
         }
-        /* Linha conetora */
         .story-timeline::before {
             content: "";
             position: absolute;
-            top: 15px;
-            left: 10%;
-            right: 10%;
+            top: 25px; /* Alinhado com o centro do novo dot maior */
+            left: 5%;
+            right: 5%;
             height: 1px;
-            background: rgba(250, 246, 238, 0.3);
+            background: rgba(250, 246, 238, 0.4);
             z-index: 0;
         }
-        .timeline-item { position: relative; z-index: 1; flex: 1; min-width: 120px; }
+        .timeline-item { 
+            position: relative; 
+            z-index: 1; 
+            flex: 1; 
+            transition: var(--transition-smooth);
+        }
+        .timeline-item:hover { transform: translateY(-10px); }
+        
         .t-dot { 
-            width: 30px; height: 30px; 
+            width: 50px; height: 50px; /* Maior */
             background: var(--bg-cream-parchment); 
             border-radius: 50%; 
-            margin: 0 auto 20px; 
+            margin: 0 auto 25px; 
             display: flex; 
             align-items: center; 
             justify-content: center;
             font-family: var(--font-header);
             color: var(--primary-terracotta);
             font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 0 0 8px rgba(250, 246, 238, 0.1);
+            font-size: 18px;
+            box-shadow: 0 0 0 0px rgba(250, 246, 238, 0.3);
+            animation: pulse-dot 3s infinite;
+            transition: var(--transition-smooth);
         }
+        .timeline-item:hover .t-dot {
+            background: var(--secondary-olive);
+            color: white;
+            box-shadow: 0 0 0 12px rgba(250, 246, 238, 0.2);
+        }
+        
+        @keyframes pulse-dot {
+            0% { box-shadow: 0 0 0 0px rgba(250, 246, 238, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(250, 246, 238, 0); }
+            100% { box-shadow: 0 0 0 0px rgba(250, 246, 238, 0); }
+        }
+
         .t-label { 
             text-transform: uppercase; 
-            letter-spacing: 0.15em; 
-            font-size: 11px; 
+            letter-spacing: 0.2em; 
+            font-size: 13px; 
             font-weight: 700; 
-            opacity: 0.8; 
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            color: var(--bg-cream-parchment);
         }
-        .t-desc { font-family: var(--font-header); font-style: italic; font-size: 18px; }
+        .t-desc { 
+            font-family: var(--font-header); 
+            font-style: italic; 
+            font-size: 22px; /* Maior */
+            line-height: 1.2;
+        }
 
         /* --- STORY B --- */
         .story-b { padding: var(--section-padding); max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
@@ -286,9 +311,9 @@
             .donos-img { height: 350px; }
             .visit-info { min-height: 300px; }
             .menu-slideshow { height: 250px; }
-            .story-timeline { flex-direction: column; gap: 30px; align-items: center; margin: 40px auto; }
+            .story-timeline { flex-direction: column; gap: 45px; align-items: center; margin: 50px auto; }
             .story-timeline::before { left: 50%; width: 1px; top: 0; bottom: 0; height: auto; }
-            .t-desc { font-size: 16px; }
+            .t-desc { font-size: 18px; }
         }
 
         @keyframes moveTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -338,14 +363,14 @@
         </div>
     </section>
 
-    <!-- STORY -->
+    <!-- STORY (TIMELINE SECTION) -->
     <section id="story">
         <div class="story-a">
             <div class="texture-overlay"></div>
-            <h2 style="font-family:var(--font-header); font-style:italic; font-size:32px; margin-bottom:10px;" lang="pt">Quatro coincidências. Um destino.</h2>
-            <h2 style="font-family:var(--font-header); font-style:italic; font-size:32px; margin-bottom:10px;" lang="en">Four coincidences. One destiny.</h2>
-            <p style="max-width:600px; margin:0 auto; opacity:0.8;" lang="pt">Dizem que nada acontece por acaso. Na nossa história, o 24 foi o fio condutor.</p>
-            <p style="max-width:600px; margin:0 auto; opacity:0.8;" lang="en">They say nothing happens by chance. In our story, 24 was the guiding thread.</p>
+            <h2 style="font-family:var(--font-header); font-style:italic; font-size:36px; margin-bottom:15px;" lang="pt">Quatro coincidências. Um destino.</h2>
+            <h2 style="font-family:var(--font-header); font-style:italic; font-size:36px; margin-bottom:15px;" lang="en">Four coincidences. One destiny.</h2>
+            <p style="max-width:650px; margin:0 auto; opacity:0.9; font-size: 17px;" lang="pt">Dizem que nada acontece por acaso. Na nossa história, o 24 foi o fio condutor.</p>
+            <p style="max-width:650px; margin:0 auto; opacity:0.9; font-size: 17px;" lang="en">They say nothing happens by chance. In our story, 24 was the guiding thread.</p>
             
             <div class="story-timeline">
                 <div class="timeline-item">
