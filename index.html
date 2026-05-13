@@ -128,22 +128,60 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* --- STORY --- */
-        .story-a { background: var(--primary-terracotta); color: white; padding: var(--section-padding); text-align: center; position: relative; }
-        .coincidences-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 1000px; margin: 40px auto; }
-        .c-card { 
-            background: rgba(250, 246, 238, 0.1); 
-            border: 1px solid rgba(250, 246, 238, 0.3);
-            color: var(--bg-cream-parchment); 
-            padding: 20px; 
-            border-radius: 4px; 
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 13px;
-            font-weight: 600;
+        /* --- STORY A (TIMELINE) --- */
+        .story-a { 
+            background: var(--primary-terracotta); 
+            color: white; 
+            padding: var(--section-padding); 
+            text-align: center; 
+            position: relative; 
         }
-        .c-card span { display: block; font-family: var(--font-header); font-size: 24px; margin-top: 5px; font-style: italic; color: white; }
+        .story-timeline { 
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start; 
+            max-width: 1000px; 
+            margin: 60px auto 20px; 
+            position: relative;
+            gap: 40px;
+        }
+        /* Linha conetora */
+        .story-timeline::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: rgba(250, 246, 238, 0.3);
+            z-index: 0;
+        }
+        .timeline-item { position: relative; z-index: 1; flex: 1; min-width: 120px; }
+        .t-dot { 
+            width: 30px; height: 30px; 
+            background: var(--bg-cream-parchment); 
+            border-radius: 50%; 
+            margin: 0 auto 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-family: var(--font-header);
+            color: var(--primary-terracotta);
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 0 0 8px rgba(250, 246, 238, 0.1);
+        }
+        .t-label { 
+            text-transform: uppercase; 
+            letter-spacing: 0.15em; 
+            font-size: 11px; 
+            font-weight: 700; 
+            opacity: 0.8; 
+            margin-bottom: 5px;
+        }
+        .t-desc { font-family: var(--font-header); font-style: italic; font-size: 18px; }
 
+        /* --- STORY B --- */
         .story-b { padding: var(--section-padding); max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .story-image-container { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
         .donos-img { width: 100%; height: 450px; object-fit: cover; display: block; filter: sepia(20%); transition: transform 0.5s ease; }
@@ -248,6 +286,9 @@
             .donos-img { height: 350px; }
             .visit-info { min-height: 300px; }
             .menu-slideshow { height: 250px; }
+            .story-timeline { flex-direction: column; gap: 30px; align-items: center; margin: 40px auto; }
+            .story-timeline::before { left: 50%; width: 1px; top: 0; bottom: 0; height: auto; }
+            .t-desc { font-size: 16px; }
         }
 
         @keyframes moveTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -301,17 +342,35 @@
     <section id="story">
         <div class="story-a">
             <div class="texture-overlay"></div>
-            <h2 style="font-family:var(--font-header); font-style:italic; font-size:32px; margin-bottom:20px;" lang="pt">Quatro coincidências. Um destino.</h2>
-            <h2 style="font-family:var(--font-header); font-style:italic; font-size:32px; margin-bottom:20px;" lang="en">Four coincidences. One destiny.</h2>
-            <p style="max-width:600px; margin:0 auto;" lang="pt">O número 24 apareceu no aniversário da Inês, do Carlos, no dia de casamento e até no número da porta.</p>
-            <p style="max-width:600px; margin:0 auto;" lang="en">The number 24 appeared on Inês's birthday, Carlos's, on their wedding day and even on the door number.</p>
-            <div class="coincidences-grid">
-                <div class="c-card">Inês <span>24</span></div>
-                <div class="c-card">Carlos <span>24</span></div>
-                <div class="c-card"><span lang="pt">Casamento</span><span lang="en">Wedding</span> <span>24</span></div>
-                <div class="c-card"><span lang="pt">Porta</span><span lang="en">Door</span> <span>24A</span></div>
+            <h2 style="font-family:var(--font-header); font-style:italic; font-size:32px; margin-bottom:10px;" lang="pt">Quatro coincidências. Um destino.</h2>
+            <h2 style="font-family:var(--font-header); font-style:italic; font-size:32px; margin-bottom:10px;" lang="en">Four coincidences. One destiny.</h2>
+            <p style="max-width:600px; margin:0 auto; opacity:0.8;" lang="pt">Dizem que nada acontece por acaso. Na nossa história, o 24 foi o fio condutor.</p>
+            <p style="max-width:600px; margin:0 auto; opacity:0.8;" lang="en">They say nothing happens by chance. In our story, 24 was the guiding thread.</p>
+            
+            <div class="story-timeline">
+                <div class="timeline-item">
+                    <div class="t-dot">24</div>
+                    <div class="t-label">Inês</div>
+                    <div class="t-desc"><span lang="pt">Aniversário</span><span lang="en">Birthday</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="t-dot">24</div>
+                    <div class="t-label">Carlos</div>
+                    <div class="t-desc"><span lang="pt">Aniversário</span><span lang="en">Birthday</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="t-dot">24</div>
+                    <div class="t-label"><span lang="pt">Casamento</span><span lang="en">Wedding</span></div>
+                    <div class="t-desc"><span lang="pt">O Grande Dia</span><span lang="en">The Big Day</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="t-dot">24A</div>
+                    <div class="t-label"><span lang="pt">Destino</span><span lang="en">Destiny</span></div>
+                    <div class="t-desc"><span lang="pt">Número da Porta</span><span lang="en">Door Number</span></div>
+                </div>
             </div>
         </div>
+
         <div class="story-b">
             <div>
                 <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="pt">De Cabeleireiro a Pizzaria</h3>
