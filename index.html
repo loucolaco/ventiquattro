@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ventiquattro | Artisan Pizza Restelo</title>
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     
     <style>
@@ -205,15 +204,11 @@
             line-height: 1.2;
         }
 
-        /* --- STORY B (HISTÓRIA COMPLETA) --- */
-        .story-b { padding: var(--section-padding); max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+        /* --- STORY B --- */
+        .story-b { padding: var(--section-padding); max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .story-image-container { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .donos-img { width: 100%; height: 550px; object-fit: cover; display: block; filter: sepia(15%); transition: transform 0.5s ease; }
+        .donos-img { width: 100%; height: 450px; object-fit: cover; display: block; filter: sepia(20%); transition: transform 0.5s ease; }
         .story-image-container:hover .donos-img { transform: scale(1.05); }
-
-        .full-story-text { font-size: 16px; line-height: 1.8; color: var(--text-near-black); }
-        .full-story-text p { margin-bottom: 20px; text-align: justify; }
-        .benvenuti-tag { font-family: var(--font-header); font-style: italic; font-size: 24px; color: var(--primary-terracotta); display: block; margin-top: 30px; text-align: center; font-weight: 700; }
 
         /* --- SECÇÃO: ESSÊNCIA --- */
         .essence-section {
@@ -341,13 +336,13 @@
         .footer-nav-list li a { color: white; text-decoration: none; transition: var(--transition-smooth); cursor: pointer; }
         .footer-nav-list li a:hover { color: var(--primary-terracotta); opacity: 1; }
 
+        /* Estilos específicos para links sociais no rodapé */
         .footer-social-link { color: inherit; text-decoration: none; transition: var(--transition-smooth); }
         .footer-social-link:hover { color: var(--primary-terracotta); opacity: 1; }
 
         @media (max-width: 850px) {
             .nav-links { 
-                display: none; 
-                position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+                display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
                 background: var(--bg-cream-parchment); flex-direction: column; 
                 justify-content: center; align-items: center;
                 padding: 40px; gap: 30px; z-index: 1001;
@@ -358,8 +353,7 @@
             .nav-links .lang-btn { border-color: var(--primary-terracotta); color: var(--primary-terracotta); font-size: 16px; padding: 10px 20px; }
             .nav-cta { display: none; }
             .mobile-toggle { display: flex; }
-            .story-b { grid-template-columns: 1fr; }
-            .visit-section { grid-template-columns: 1fr; }
+            .story-b, .visit-section { grid-template-columns: 1fr; }
             .essence-grid { grid-template-columns: 1fr; }
             .donos-img { height: 350px; }
             .visit-info { min-height: 300px; }
@@ -389,10 +383,10 @@
         <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
     </nav>
 
-    <!-- HERO WITH VIDEO BACKGROUND -->
     <section class="hero-section">
         <video autoplay muted loop playsinline id="hero-video">
             <source src="video.mp4" type="video/mp4">
+            O seu browser não suporta vídeos.
         </video>
         <div class="hero-overlay"></div>
         <div class="texture-overlay"></div>
@@ -415,85 +409,99 @@
         </div>
     </section>
 
-    <!-- STORY SECTION -->
     <section id="story">
-        <!-- 1. ESSÊNCIA -->
         <div class="essence-section">
             <div class="texture-overlay"></div>
             <div class="essence-container">
                 <h2 style="font-family:var(--font-header); font-style:italic; font-size:36px; margin-bottom:20px;">
                     <span lang="pt">A Nossa Essência</span><span lang="en">Our Essence</span>
                 </h2>
-                <p style="max-width:750px; margin:0 auto; font-size:18px; opacity:0.9;" lang="pt">No coração do Restelo, a Ventiquattro nasceu para ser mais do que uma pizzaria — um ponto de encontro onde o bairro se cruza naturalmente.</p>
+                <p style="max-width:750px; margin:0 auto; font-size:18px; opacity:0.9;" lang="pt">
+                    No coração do Restelo, a Ventiquattro nasceu para ser mais do que uma pizzaria — um ponto de encontro onde o bairro se cruza naturalmente.
+                </p>
+                <p style="max-width:750px; margin:0 auto; font-size:18px; opacity:0.9;" lang="en">
+                    In the heart of Restelo, Ventiquattro was born to be more than just a pizzeria — a meeting point where the neighborhood naturally crosses paths.
+                </p>
+
                 <div class="essence-grid">
                     <div class="essence-card">
-                        <h3 lang="pt">Raízes Italianas</h3>
+                        <h3 lang="pt">Raízes Italianas</h3><h3 lang="en">Italian Roots</h3>
                         <p lang="pt">Inspirada nas tradicionais trattorias, trazemos a autenticidade mediterrânea para Lisboa através da simplicidade e frescura.</p>
+                        <p lang="en">Inspired by traditional trattorias, we bring Mediterranean authenticity to Lisbon through simplicity and freshness.</p>
                     </div>
                     <div class="essence-card">
-                        <h3 lang="pt">Feito à Mão</h3>
+                        <h3 lang="pt">Feito à Mão</h3><h3 lang="en">Handmade</h3>
                         <p lang="pt">Massas artesanais e pizzas de forno preparadas com tempo e dedicação, honrando a tradição em cada detalhe.</p>
+                        <p lang="en">Artisanal pastas and oven-baked pizzas prepared with time and dedication, honoring tradition in every detail.</p>
                     </div>
                     <div class="essence-card">
-                        <h3 lang="pt">Espírito de Casa</h3>
+                        <h3 lang="pt">Espírito de Casa</h3><h3 lang="en">Home Spirit</h3>
                         <p lang="pt">Um lugar pensado para ficar sem pressa, partilhar momentos e regressar onde o conforto é o prato principal.</p>
+                        <p lang="en">A place designed to stay without haste, share moments and return where comfort is the main dish.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 2. TIMELINE -->
         <div class="story-a">
             <div class="texture-overlay"></div>
             <h2 style="font-family:var(--font-header); font-style:italic; font-size:36px; margin-bottom:15px;" lang="pt">Quatro coincidências. Um destino.</h2>
+            <h2 style="font-family:var(--font-header); font-style:italic; font-size:36px; margin-bottom:15px;" lang="en">Four coincidences. One destiny.</h2>
+            <p style="max-width:650px; margin:0 auto; opacity:0.9; font-size: 17px;" lang="pt">Dizem que nada acontece por acaso. Na nossa história, o 24 foi o fio condutor.</p>
+            <p style="max-width:650px; margin:0 auto; opacity:0.9; font-size: 17px;" lang="en">They say nothing happens by chance. In our story, 24 was the guiding thread.</p>
+            
             <div class="story-timeline">
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
                     <div class="t-label">Inês</div>
-                    <div class="t-desc"><span lang="pt">Aniversário</span></div>
+                    <div class="t-desc"><span lang="pt">Aniversário</span><span lang="en">Birthday</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
                     <div class="t-label">Carlos</div>
-                    <div class="t-desc"><span lang="pt">Aniversário</span></div>
+                    <div class="t-desc"><span lang="pt">Aniversário</span><span lang="en">Birthday</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
-                    <div class="t-label"><span lang="pt">Casamento</span></div>
-                    <div class="t-desc"><span lang="pt">O Grande Dia</span></div>
+                    <div class="t-label"><span lang="pt">Casamento</span><span lang="en">Wedding</span></div>
+                    <div class="t-desc"><span lang="pt">O Grande Dia</span><span lang="en">The Big Day</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="t-dot">24A</div>
-                    <div class="t-label"><span lang="pt">Destino</span></div>
-                    <div class="t-desc"><span lang="pt">Número da Porta</span></div>
+                    <div class="t-label"><span lang="pt">Destino</span><span lang="en">Destiny</span></div>
+                    <div class="t-desc"><span lang="pt">Número da Porta</span><span lang="en">Door Number</span></div>
                 </div>
             </div>
         </div>
 
-        <!-- 3. HISTÓRIA COMPLETA (NOVO TEXTO) -->
         <div class="story-b">
-            <div class="full-story-text">
-                <h3 style="font-family:var(--font-header); font-style:italic; font-size:32px; color:var(--primary-terracotta); margin-bottom:25px;" lang="pt">Da Herança de Família à Massa Fina e Crocante</h3>
+            <div>
+                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="pt">Da Herança de Família à Massa Fina e Crocante</h3>
+                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="en">From Family Heritage to Thin and Crispy Crust</h3>
                 
                 <div lang="pt">
-                    <p>Onde hoje saem pizzas de inspiração romana, finas e crocantes, durante quase 50 anos funcionou o <strong>Salão do Restelo</strong>. O número 24 da Rua Duarte Pacheco Pereira era a casa da "Dona Tina", mas em 2020 a tesoura deu lugar à farinha quando a sua filha, Inês Baptista, decidiu transformar o espaço da família num refúgio gastronómico.</p>
-                    
-                    <p>O <strong>Ventiquattro</strong> nasceu de uma amizade e de uma ideia que surgiu durante umas férias em Aljezur. Inês e o seu sócio, Carlos Serra, quiseram trazer para o Restelo o sabor autêntico de Itália, trabalhando com ingredientes premium — como a ventricina e a mozzarella italiana — em receitas onde tudo é feito de raiz, do pesto às focaccias.</p>
-                    
+                    <p>Onde hoje saem pizzas de inspiração romana, finas e crocantes, durante quase 50 anos funcionou o Salão do Restelo. O número 24 da Rua Duarte Pacheco Pereira era a casa da "Dona Tina", mas em 2020 a tesoura deu lugar à farinha quando a sua filha, Inês Baptista, decidiu transformar o espaço da família num refúgio gastronómico.</p>
+                    <p>O Ventiquattro nasceu de uma amizade e de uma ideia que surgiu durante umas férias em Aljezur. Inês e o seu sócio, Carlos Serra, quiseram trazer para o Restelo o sabor autêntico de Itália, trabalhando com ingredientes premium — como a ventricina e a mozzarella italiana — em receitas onde tudo é feito de raiz, do pesto às focaccias.</p>
                     <p>O nome pareceu óbvio, mas o destino confirmou-o: estamos no número 24, temos 24 lugares no interior, outros 24 na esplanada e, curiosamente, ambos os fundadores celebram o aniversário no dia 24.</p>
-                    
-                    <p>Mais do que uma pizzaria, somos um ponto de encontro no bairro onde a tradição se sente em cada detalhe e o carinho passa de geração em geração.</p>
-                    
-                    <span class="benvenuti-tag">Benvenuti al Ventiquattro!</span>
+                    <p>Mais do que uma pizzaria, somos um ponto de encontro no bairro onde a tradição se sente em cada detalhe e o carinho passa de geração em geração. Benvenuti al Ventiquattro!</p>
                 </div>
+
+                <div lang="en">
+                    <p>Where Roman-inspired, thin, and crispy pizzas are served today, the Salão do Restelo operated for nearly 50 years. Number 24 Rua Duarte Pacheco Pereira was "Dona Tina's" home, but in 2020, scissors gave way to flour when her daughter, Inês Baptista, decided to transform the family space into a gastronomic haven.</p>
+                    <p>Ventiquattro was born from a friendship and an idea that emerged during a vacation in Aljezur. Inês and her partner, Carlos Serra, wanted to bring the authentic taste of Italy to Restelo, working with premium ingredients — such as ventricina and Italian mozzarella — in recipes where everything is made from scratch, from pesto to focaccias.</p>
+                    <p>The name seemed obvious, but destiny confirmed it: we are at number 24, we have 24 seats inside, another 24 on the terrace, and curiously, both founders celebrate their birthdays on the 24th.</p>
+                    <p>More than just a pizzeria, we are a neighborhood meeting point where tradition is felt in every detail and care is passed from generation to generation. Benvenuti al Ventiquattro!</p>
+                </div>
+                
+                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="pt">Na foto: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
+                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="en">Pictured: Inês and Carlos, the faces behind Ventiquattro.</p>
             </div>
             <div class="story-image-container">
-                <img src="donos.webp" alt="Inês e Carlos - Ventiquattro" class="donos-img">
+                <img src="donos.webp" alt="Inês e Carlos - Donos da Ventiquattro" class="donos-img">
             </div>
         </div>
     </section>
 
-    <!-- MENU -->
     <section class="menu-section" id="menu">
         <div class="texture-overlay"></div>
         <div style="text-align:center;">
@@ -519,71 +527,111 @@
 
         <div class="menu-container">
             <div id="entradas" class="menu-category-content active">
-                <div class="menu-card"><h3>Croquetes <span class="price">4,50€</span></h3><p><span lang="pt">Com mostarda e mel (3 unidades)</span></p></div>
-                <div class="menu-card"><h3>Carpaccio de salmão <span class="price">11,50€</span></h3><p><span lang="pt">Rucula, lima, alcaparras e pesto</span></p></div>
-                <div class="menu-card"><h3>Carpaccio de vitela <span class="price">9,50€</span></h3><p><span lang="pt">Rucula e lascas de parmesão</span></p></div>
-                <div class="menu-card"><h3>Pão de Alho <span class="price">4,50€</span></h3><p><span lang="pt">Em pão da casa, mozzarella fior di latte, tomate e azeite de alho</span></p></div>
+                <div class="menu-card"><h3>Croquetes <span class="price">4,50€</span></h3><p><span lang="pt">Com mostarda e mel (3 unidades)</span><span lang="en">With mustard and honey (3 units)</span></p></div>
+                <div class="menu-card"><h3>Carpaccio de salmão <span class="price">11,50€</span></h3><p><span lang="pt">Rucula, lima, alcaparras e pesto</span><span lang="en">Arugula, lime, capers and pesto</span></p></div>
+                <div class="menu-card"><h3>Carpaccio de vitela <span class="price">9,50€</span></h3><p><span lang="pt">Rucula e lascas de parmesão</span><span lang="en">Arugula and parmesan shavings</span></p></div>
+                <div class="menu-card"><h3>Pão de Alho <span class="price">4,50€</span></h3><p><span lang="pt">Em pão da casa, mozzarella fior di latte, tomate, manjericão e azeite de alho</span><span lang="en">In house bread, fior di latte mozzarella, tomato, basil and garlic oil</span></p></div>
+                <div class="menu-card"><h3>Bruschetta do Chefe <span class="price">5,90€</span></h3><p><span lang="pt">Pão da casa, mozzarella bufala, presunto de Parma, rucula e tomate cereja</span><span lang="en">House bread, buffalo mozzarella, Parma ham, arugula and cherry tomato</span></p></div>
+                <div class="menu-card"><h3>Bruschetta de Bacalhau <span class="price">6,50€</span></h3><p><span lang="pt">Pão da casa, molho de tomate, peperoncini e carpaccio de bacalhau</span><span lang="en">House bread, tomato sauce, peperoncini and cod carpaccio</span></p></div>
+                <div class="menu-card"><h3>Crostini de Salmão <span class="price">6,50€</span></h3><p><span lang="pt">Pão da casa, mozzarella bufala, salmão marinado, pesto, rucula e lima</span><span lang="en">House bread, buffalo mozzarella, marinated salmon, pesto, arugula and lime</span></p></div>
+                <div class="menu-card"><h3>Foccacia <span class="price">4,00€</span></h3><p><span lang="pt">Azeite de alho e alecrim</span><span lang="en">Garlic oil and rosemary</span></p></div>
             </div>
-            <!-- Outras categorias seguem a mesma lógica (massas, pizzas, etc) -->
+
+            <div id="saladas" class="menu-category-content">
+                <div class="menu-card"><h3>Arrifana * <span class="price">11,90€</span></h3><p><span lang="pt">Alfaces, queijo de cabra alentejano, tomate seco, presunto, azeitonas</span><span lang="en">Lettuce, goat cheese, dried tomato, ham, olives</span></p></div>
+                <div class="menu-card"><h3>Salmão * <span class="price">12,90€</span></h3><p><span lang="pt">Rucula, abacate, bufala, salmão marinado e pesto</span><span lang="en">Arugula, avocado, buffalo mozzarella, marinated salmon and pesto</span></p></div>
+                <div class="menu-card"><h3>Ventiquattro * <span class="price">10,90€</span></h3><p><span lang="pt">Alfaces, presunto de parma, tomate seco e lascas de parmesão</span><span lang="en">Lettuce, parma ham, dried tomato and parmesan shavings</span></p></div>
+                <div class="menu-card"><h3>Verão * <span class="price">12,90€</span></h3><p><span lang="pt">Alfaces, queijo pecurino, presunto de parma e figos</span><span lang="en">Lettuce, pecorino cheese, parma ham and figs</span></p></div>
+                <div class="menu-card"><h3>Aljezur <span class="price">12,90€</span></h3><p><span lang="pt">Alfaces, tomate cereja, peperoncini, frango assado, molho de limão, mel e mostarda dijon</span><span lang="en">Lettuce, cherry tomato, peperoncini, roast chicken, lemon, honey and consultant dijon</span></p></div>
+                <div class="menu-card"><h3>Burrata <span class="price">11,50€</span></h3><p><span lang="pt">Folhas de alface, tomate cereja, manjericão e torradinhas</span><span lang="en">Lettuce leaves, cherry tomato, basil and toasties</span></p></div>
+            </div>
+
+            <div id="massas" class="menu-category-content">
+                <div class="menu-card"><h3>Lasanha de carne <span class="price">10,50€</span></h3><p><span lang="pt">Receita clássica artesanal</span><span lang="en">Classic artisan recipe</span></p></div>
+                <div class="menu-card"><h3>Lasanha vegetariana <span class="price">10,50€</span></h3><p><span lang="pt">Legumes frescos e bechamel da casa</span><span lang="en">Fresh vegetables and house bechamel</span></p></div>
+                <div class="menu-card"><h3>Linguini Nero com camarão <span class="price">14,90€</span></h3><p><span lang="pt">Molho de tomate, camarão, salsa e alho</span><span lang="en">Tomato sauce, shrimp, parsley and garlic</span></p></div>
+                <div class="menu-card"><h3>Fusilli al pesto <span class="price">11,90€</span></h3><p><span lang="pt">Creme de burrata, rucula, tomate cereja, pesto e pinhões</span><span lang="en">Burrata cream, arugula, cherry tomato, pesto and pine nuts</span></p></div>
+                <div class="menu-card"><h3>Fusilli bambino <span class="price">8,90€</span></h3><p><span lang="pt">Molho de tomate, tomate cereja, frango assado</span><span lang="en">Tomato sauce, cherry tomato, roast chicken</span></p></div>
+            </div>
+
             <div id="pizzas" class="menu-category-content">
-                <div class="menu-card"><h3>Ventiquattro ★ <span class="price">14,50€</span></h3><p><span lang="pt">Mozzarella fior di latte, rúcula, búfala e tomate cereja.</span></p></div>
-                <div class="menu-card"><h3>Diavola <span class="price">13,50€</span></h3><p><span lang="pt">Molho de tomate, fior di latte, salame ventricino picante.</span></p></div>
-                <div class="menu-card"><h3>Trufa <span class="price">16,00€</span></h3><p><span lang="pt">Pasta de trufa, mozzarella fior di latte e trufa laminada.</span></p></div>
-                <div class="menu-card"><h3>Margherita <span class="price">10,50€</span></h3><p><span lang="pt">Tomate, mozzarella fior di latte e manjericão fresco.</span></p></div>
+                <div class="menu-card"><h3>Ventiquattro ★ <span class="price">14,50€</span></h3><p><span lang="pt">Mozzarella fior di latte, rúcula, búfala e tomate cereja.</span><span lang="en">Fior di latte mozzarella, arugula, buffalo mozzarella and cherry tomato.</span></p></div>
+                <div class="menu-card"><h3>Diavola <span class="price">13,50€</span></h3><p><span lang="pt">Molho de tomate, fior di latte, salame ventricino picante.</span><span lang="en">Tomato sauce, fior di latte, spicy ventricino salami.</span></p></div>
+                <div class="menu-card"><h3>Trufa <span class="price">16,00€</span></h3><p><span lang="pt">Pasta de trufa, mozzarella fior di latte e trufa laminada.</span><span lang="en">Truffle paste, fior di latte mozzarella and laminated truffle.</span></p></div>
+                <div class="menu-card"><h3>Margherita <span class="price">10,50€</span></h3><p><span lang="pt">Tomate, mozzarella fior di latte e manjericão fresco.</span><span lang="en">Tomato, fior di latte mozzarella and fresh basil.</span></p></div>
+            </div>
+
+            <div id="tabuas" class="menu-category-content">
+                <div class="menu-card"><h3>Tabua 23 <span class="price">12,90€</span></h3><p><span lang="pt">Presunto de Parma, queijo provolone, tomate cereja, manjericão e cesto de pão</span><span lang="en">Parma ham, provolone cheese, cherry tomato, basil and bread basket</span></p></div>
+                <div class="menu-card"><h3>Tabua 24 <span class="price">22,00€</span></h3><p><span lang="pt">Queijos grana padano, gorgonzola e provolone, presunto de Parma, chouriço, salame ventricino e pão</span><span lang="en">Grana padano, gorgonzola and provolone, Parma ham, chorizo, ventricino salami and bread</span></p></div>
             </div>
         </div>
     </section>
 
-    <!-- SOCIAL & TERRACE -->
     <section class="social-proof" id="community">
         <div style="text-align:center;">
-            <h2 style="font-family:var(--font-header); font-style:italic; font-size:32px;"><span lang="pt">O que diz o Restelo</span></h2>
+            <h2 style="font-family:var(--font-header); font-style:italic; font-size:32px;"><span lang="pt">O que diz o Restelo</span><span lang="en">What Restelo says</span></h2>
             <p>4.5 ★ no Google · 250 reviews</p>
         </div>
         <div class="reviews-grid">
             <div class="review-card" lang="pt">"A melhor pizza de massa fina em Lisboa. A Ventiquattro é soberba." - Google Review</div>
+            <div class="review-card" lang="en">"Best thin-crust pizza in Lisbon. Ventiquattro is superb." - Google Review</div>
+            
             <div class="review-card" lang="pt">"Esplanada aquecida fantástica para as noites de inverno." - Google Review</div>
-            <div class="review-card" lang="pt">"Atendimento familiar e qualidade constante." - Google Review</div>
+            <div class="review-card" lang="en">"Fantastic heated terrace for winter nights." - Google Review</div>
+            
+            <div class="review-card" lang="pt">"Atendimento familiar e qualidade constante. Recomendo a Parma." - Google Review</div>
+            <div class="review-card" lang="en">"Family service and constant quality. I recommend the Parma." - Google Review</div>
         </div>
         <div class="ticker-wrap">
             <div class="ticker">
-                <span lang="pt">MASSA FINA & CROCANTE</span><span>ESPLANADA AQUECIDA</span><span>OPEN EVERY DAY</span><span>RESTELO PRIDE</span>
-                <span lang="pt">MASSA FINA & CROCANTE</span><span>ESPLANADA AQUECIDA</span><span>OPEN EVERY DAY</span><span>RESTELO PRIDE</span>
+                <span lang="pt">MASSA FINA & CROCANTE</span><span lang="en">THIN & CRISPY CRUST</span>
+                <span lang="pt">ESPLANADA AQUECIDA</span><span lang="en">HEATED TERRACE</span>
+                <span>OPEN EVERY DAY</span><span>RESTELO PRIDE</span>
+                <span lang="pt">MASSA FINA & CROCANTE</span><span lang="en">THIN & CRISPY CRUST</span>
+                <span lang="pt">ESPLANADA AQUECIDA</span><span lang="en">HEATED TERRACE</span>
+                <span>OPEN EVERY DAY</span><span>RESTELO PRIDE</span>
             </div>
         </div>
     </section>
 
-    <!-- VISIT SECTION -->
     <section class="visit-section" id="visit">
         <div class="visit-card">
             <h2 style="font-family:var(--font-header); font-style:italic; margin-bottom:15px; color:var(--primary-terracotta);">
-                <span lang="pt">Sem Reservas</span>
+                <span lang="pt">Sem Reservas</span><span lang="en">Walk-ins Welcome</span>
             </h2>
             <p style="color:var(--text-muted); margin-bottom:25px;" lang="pt">Não aceitamos reservas. Sinta-se à vontade para aparecer, desfrutar da nossa esplanada e garantimos que terá uma mesa o mais breve possível.</p>
+            <p style="color:var(--text-muted); margin-bottom:25px;" lang="en">We don't take reservations. Feel free to stop by, enjoy our terrace and we'll get you a table as soon as possible.</p>
             <div style="border-top:1px solid #eee; padding-top:25px;">
-                <p style="font-weight:600; margin-bottom:5px;"><span lang="pt">Dúvidas ou Take-away?</span></p>
+                <p style="font-weight:600; margin-bottom:5px;"><span lang="pt">Dúvidas ou Take-away?</span><span lang="en">Questions or Take-away?</span></p>
                 <a href="tel:+351963974421" style="font-size:24px; color:var(--text-near-black); text-decoration:none; font-family:var(--font-header); font-weight:700;">+351 963 974 421</a>
             </div>
         </div>
         <div class="visit-info">
             <h3 style="font-family:var(--font-header); font-style:italic; color:var(--primary-terracotta); margin-bottom:15px;">
-                <span lang="pt">Como nos encontrar</span>
+                <span lang="pt">Como nos encontrar</span><span lang="en">How to find us</span>
             </h3>
             <p style="margin-bottom:20px;">Rua Duarte Pacheco Pereira 24A,<br>1400-140 Lisboa (Restelo)</p>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; border-top:1px solid rgba(255,255,255,0.3); padding-top:20px;">
-                <div><p style="font-weight:700; color:var(--primary-terracotta);">Almoço</p><p>12:00 – 15:00</p></div>
-                <div><p style="font-weight:700; color:var(--primary-terracotta);">Jantar</p><p>19:00 – 22:30</p></div>
+                <div>
+                    <p style="font-weight:700; color:var(--primary-terracotta);"><span lang="pt">Almoço</span><span lang="en">Lunch</span></p>
+                    <p style="opacity:1;">12:00 – 15:00</p>
+                </div>
+                <div>
+                    <p style="font-weight:700; color:var(--primary-terracotta);"><span lang="pt">Jantar</span><span lang="en">Dinner</span></p>
+                    <p style="opacity:1;">19:00 – 22:30</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-watermark">24</div>
         <div class="footer-grid">
             <div>
                 <img src="logoventi.jpeg" alt="Ventiquattro Logo" class="footer-logo-img">
-                <p style="font-size:14px; opacity:0.8;">O número que nos escolheu.<br>R. Duarte Pacheco Pereira 24A</p>
+                <p style="font-size:14px; opacity:0.8;" lang="pt">O número que nos escolheu.<br>R. Duarte Pacheco Pereira 24A</p>
+                <p style="font-size:14px; opacity:0.8;" lang="en">The number that chose us.<br>R. Duarte Pacheco Pereira 24A</p>
             </div>
             <div>
                 <h4 style="color:var(--primary-terracotta); margin-bottom:15px;">Menu</h4>
@@ -596,14 +644,20 @@
                 </ul>
             </div>
             <div>
-                <h4 style="color:var(--primary-terracotta); margin-bottom:15px;">Siga-nos</h4>
+                <h4 style="color:var(--primary-terracotta); margin-bottom:15px;"><span lang="pt">Siga-nos</span><span lang="en">Follow Us</span></h4>
                 <p style="font-size:13px; opacity:0.7;">
                     <a href="https://www.instagram.com/pizzaria.ventiquattro/" target="_blank" class="footer-social-link">@pizzaria.ventiquattro</a>
                 </p>
+                <p style="font-size:13px; opacity:0.7; margin-top:10px;">
+                    <a href="https://www.ubereats.com/pt-en/store/ventiquattro/khwOsH9WRcm0qVKkvJ772Q" target="_blank" class="footer-social-link">UberEats Delivery Available</a>
+                </p>
             </div>
         </div>
+        <p style="text-align:center; font-family:var(--font-header); font-style:italic; font-size:11px; opacity:0.4; margin-top:40px;">
+            Inês's birthday · Carlos's birthday · Wedding anniversary · Door number · Ventiquattro.
+        </p>
         <div class="bottom-bar">
-            © 2026 Ventiquattro. Restelo, Lisboa. Todos os direitos reservados.
+            © 2026 Ventiquattro. Restelo, Lisboa. <span lang="pt">Todos os direitos reservados.</span><span lang="en">All rights reserved.</span>
         </div>
     </footer>
 
@@ -645,7 +699,6 @@
             
             const categories = document.querySelectorAll('.menu-category-content');
             categories.forEach(cat => cat.classList.remove('active'));
-            
             const selectedCategory = document.getElementById(categoryId);
             if (selectedCategory) {
                 selectedCategory.classList.add('active');
