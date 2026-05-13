@@ -141,7 +141,7 @@
             align-items: flex-start; 
             max-width: 1100px; 
             margin: 80px auto 40px; 
-            position: relative;
+            position: relative; 
             gap: 20px;
         }
         .story-timeline::before {
@@ -211,7 +211,7 @@
         .donos-img { width: 100%; height: 450px; object-fit: cover; display: block; filter: sepia(20%); transition: transform 0.5s ease; }
         .story-image-container:hover .donos-img { transform: scale(1.05); }
 
-        /* --- SECÇÃO: ESSÊNCIA (Atualizada) --- */
+        /* --- SECÇÃO: ESSÊNCIA --- */
         .essence-section {
             padding: var(--section-padding);
             background: var(--secondary-olive);
@@ -233,7 +233,7 @@
             margin-top: 60px;
         }
         .essence-card {
-            padding: 50px 30px; /* Padding aumentado para equilibrar sem emoji */
+            padding: 50px 30px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             transition: var(--transition-smooth);
@@ -247,12 +247,12 @@
         .essence-card h3 {
             font-family: var(--font-header);
             font-style: italic;
-            font-size: 26px; /* Tamanho aumentado conforme pedido */
+            font-size: 26px;
             margin-bottom: 15px;
             color: var(--primary-terracotta);
         }
         .essence-card p {
-            font-size: 15px; /* Ligeiro ajuste no corpo do texto */
+            font-size: 15px;
             opacity: 0.8;
             line-height: 1.6;
         }
@@ -332,6 +332,11 @@
         .footer-logo-img { height: 60px; width: auto; margin-bottom: 15px; border-radius: 50%; opacity: 0.9; }
         .footer-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 300px; font-family: var(--font-header); font-style: italic; color: var(--primary-terracotta); opacity: 0.04; pointer-events: none; }
         .bottom-bar { text-align: center; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; margin-top: 50px; opacity: 0.6; }
+        
+        /* Ajuste para os links do rodapé ficarem clicáveis e com aspeto de link */
+        .footer-nav-list { list-style: none; font-size: 13px; opacity: 0.7; line-height: 2; }
+        .footer-nav-list li a { color: white; text-decoration: none; transition: var(--transition-smooth); cursor: pointer; }
+        .footer-nav-list li a:hover { color: var(--primary-terracotta); opacity: 1; }
 
         @media (max-width: 850px) {
             .nav-links { 
@@ -417,12 +422,12 @@
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
                     <div class="t-label">Inês</div>
-                    <div class="t-desc"><span lang="pt">Dia de anos</span><span lang="en">Birthday</span></div>
+                    <div class="t-desc"><span lang="pt">Aniversário</span><span lang="en">Birthday</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
                     <div class="t-label">Carlos</div>
-                    <div class="t-desc"><span lang="pt">Dia de anos</span><span lang="en">Birthday</span></div>
+                    <div class="t-desc"><span lang="pt">Aniversário</span><span lang="en">Birthday</span></div>
                 </div>
                 <div class="timeline-item">
                     <div class="t-dot">24</div>
@@ -445,7 +450,7 @@
                 <p lang="pt">Durante 49 anos, este espaço foi o Salão do Restelo da D. Tina. Hoje, a filha Inês continua o legado, trocando secadores por um forno de pizza artesanal.</p>
                 <p lang="en">For 49 years, this space was D. Tina's Restelo Salon. Today, her daughter Inês continues the legacy, swapping hairdryers for an artisan pizza oven.</p>
                 
-                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="pt">Na fotografia: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
+                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="pt">Na foto: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
                 <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="en">Pictured: Inês and Carlos, the faces behind Ventiquattro.</p>
             </div>
             <div class="story-image-container">
@@ -454,7 +459,7 @@
         </div>
     </section>
 
-    <!-- ESSÊNCIA SECTION (Emoji-free version) -->
+    <!-- ESSÊNCIA SECTION -->
     <section class="essence-section">
         <div class="texture-overlay"></div>
         <div class="essence-container">
@@ -625,8 +630,11 @@
             </div>
             <div>
                 <h4 style="color:var(--primary-terracotta); margin-bottom:15px;">Menu</h4>
-                <ul style="list-style:none; font-size:13px; opacity:0.7; line-height:2;">
-                    <li>Entradas</li><li>Saladas</li><li>Massas</li><li>Pizzas</li>
+                <ul class="footer-nav-list">
+                    <li><a href="#menu" onclick="switchMenu('entradas')">Entradas</a></li>
+                    <li><a href="#menu" onclick="switchMenu('saladas')">Saladas</a></li>
+                    <li><a href="#menu" onclick="switchMenu('massas')">Massas</a></li>
+                    <li><a href="#menu" onclick="switchMenu('pizzas')">Pizzas</a></li>
                 </ul>
             </div>
             <div>
@@ -677,7 +685,10 @@
         function switchMenu(categoryId) {
             const btns = document.querySelectorAll('.tab-btn');
             btns.forEach(btn => btn.classList.remove('active'));
-            if (event && event.target) event.target.classList.add('active');
+            
+            // Garantir que os botões do filtro principal recebem a classe active se existirem no clique
+            const targetBtn = Array.from(btns).find(btn => btn.getAttribute('onclick').includes(categoryId));
+            if (targetBtn) targetBtn.classList.add('active');
             
             const categories = document.querySelectorAll('.menu-category-content');
             categories.forEach(cat => cat.classList.remove('active'));
