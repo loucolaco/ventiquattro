@@ -130,7 +130,59 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* --- STORY A (TIMELINE DINÂMICA) --- */
+        /* --- STORY SECTIONS --- */
+        .essence-section {
+            padding: var(--section-padding);
+            background: var(--secondary-olive);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .essence-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .essence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        .essence-card {
+            padding: 50px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: var(--transition-smooth);
+            border-bottom: 2px solid transparent;
+        }
+        .essence-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-bottom-color: var(--primary-terracotta);
+        }
+        .essence-card h3 {
+            font-family: var(--font-header);
+            font-style: italic;
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: var(--primary-terracotta);
+        }
+        .essence-card p {
+            font-size: 15px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* STORY B - TEXT AND IMAGE */
+        .story-b { padding: var(--section-padding); max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .story-image-container { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .donos-img { width: 100%; height: 450px; object-fit: cover; display: block; filter: sepia(20%); transition: transform 0.5s ease; }
+        .story-image-container:hover .donos-img { transform: scale(1.05); }
+
+        /* STORY A - TIMELINE */
         .story-a { 
             background: var(--primary-terracotta);
             color: white; 
@@ -206,58 +258,6 @@
             font-style: italic; 
             font-size: 22px; 
             line-height: 1.2;
-        }
-
-        /* --- STORY B --- */
-        .story-b { padding: var(--section-padding); max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .story-image-container { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .donos-img { width: 100%; height: 450px; object-fit: cover; display: block; filter: sepia(20%); transition: transform 0.5s ease; }
-        .story-image-container:hover .donos-img { transform: scale(1.05); }
-
-        /* --- SECÇÃO: ESSÊNCIA --- */
-        .essence-section {
-            padding: var(--section-padding);
-            background: var(--secondary-olive);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .essence-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        .essence-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 60px;
-        }
-        .essence-card {
-            padding: 50px 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            transition: var(--transition-smooth);
-            border-bottom: 2px solid transparent;
-        }
-        .essence-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
-            border-bottom-color: var(--primary-terracotta);
-        }
-        .essence-card h3 {
-            font-family: var(--font-header);
-            font-style: italic;
-            font-size: 26px;
-            margin-bottom: 15px;
-            color: var(--primary-terracotta);
-        }
-        .essence-card p {
-            font-size: 15px;
-            opacity: 0.8;
-            line-height: 1.6;
         }
 
         /* --- MENU SECTION --- */
@@ -447,6 +447,25 @@
             </div>
         </div>
 
+        <div class="story-b">
+            <div>
+                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="pt">Da Herança de Família à Massa Fina e Crocante</h3>
+                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="en">From Family Heritage to Thin and Crispy Crust</h3>
+                
+                <p lang="pt">Onde hoje saem pizzas de inspiração romana, finas e crocantes, durante quase 50 anos funcionou o Salão do Restelo da "Dona Tina". Em 2020, o número 24 da Rua Duarte Pacheco Pereira viu a tesoura dar lugar à farinha quando a sua filha, Inês Baptista, e o sócio Carlos Serra decidiram transformar o espaço da família num refúgio gastronómico autêntico.</p>
+                <p lang="en">Where thin and crispy Roman-inspired pizzas are served today, Dona Tina's "Salão do Restelo" operated for almost 50 years. In 2020, number 24 on Rua Duarte Pacheco Pereira saw the scissors make way for flour when her daughter, Inês Baptista, and partner Carlos Serra decided to transform the family space into an authentic gastronomic haven.</p>
+                
+                <p style="margin-top:15px;" lang="pt">O nome Ventiquattro pareceu óbvio, mas o destino confirmou-o: temos 24 lugares no interior, outros 24 na esplanada e ambos os fundadores celebram o aniversário no dia 24. Mais do que uma pizzaria, somos um ponto de encontro onde o carinho passa de geração em geração. Benvenuti!</p>
+                <p style="margin-top:15px;" lang="en">The name Ventiquattro seemed obvious, but destiny confirmed it: we have 24 seats inside, 24 on the terrace, and both founders celebrate their birthdays on the 24th. More than a pizzeria, we are a meeting point where care is passed from generation to generation. Benvenuti!</p>
+                
+                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="pt">Na foto: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
+                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="en">Pictured: Inês and Carlos, the faces behind Ventiquattro.</p>
+            </div>
+            <div class="story-image-container">
+                <img src="donos.webp" alt="Inês e Carlos - Donos da Ventiquattro" class="donos-img">
+            </div>
+        </div>
+
         <div class="story-a">
             <div class="texture-overlay"></div>
             <h2 style="font-family:var(--font-header); font-style:italic; font-size:36px; margin-bottom:15px;" lang="pt">Quatro coincidências. Um destino.</h2>
@@ -475,25 +494,6 @@
                     <div class="t-label"><span lang="pt">Destino</span><span lang="en">Destiny</span></div>
                     <div class="t-desc"><span lang="pt">Número da Porta</span><span lang="en">Door Number</span></div>
                 </div>
-            </div>
-        </div>
-
-        <div class="story-b">
-            <div>
-                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="pt">Da Herança de Família à Massa Fina e Crocante</h3>
-                <h3 style="font-family:var(--font-header); font-style:italic; font-size:28px; color:var(--primary-terracotta); margin-bottom:15px;" lang="en">From Family Heritage to Thin and Crispy Crust</h3>
-                
-                <p lang="pt">Onde hoje saem pizzas de inspiração romana, finas e crocantes, durante quase 50 anos funcionou o Salão do Restelo da "Dona Tina". Em 2020, o número 24 da Rua Duarte Pacheco Pereira viu a tesoura dar lugar à farinha quando a sua filha, Inês Baptista, e o sócio Carlos Serra decidiram transformar o espaço da família num refúgio gastronómico autêntico.</p>
-                <p lang="en">Where thin and crispy Roman-inspired pizzas are served today, Dona Tina's "Salão do Restelo" operated for almost 50 years. In 2020, number 24 on Rua Duarte Pacheco Pereira saw the scissors make way for flour when her daughter, Inês Baptista, and partner Carlos Serra decided to transform the family space into an authentic gastronomic haven.</p>
-                
-                <p style="margin-top:15px;" lang="pt">O nome Ventiquattro pareceu óbvio, mas o destino confirmou-o: temos 24 lugares no interior, outros 24 na esplanada e ambos os fundadores celebram o seu dia de anos no dia 24. Mais do que uma pizzaria, somos um ponto de encontro onde o carinho passa de geração em geração. Benvenuti!</p>
-                <p style="margin-top:15px;" lang="en">The name Ventiquattro seemed obvious, but destiny confirmed it: we have 24 seats inside, 24 on the terrace, and both founders celebrate their birthdays on the 24th. More than a pizzeria, we are a meeting point where care is passed from generation to generation. Benvenuti!</p>
-                
-                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="pt">Na fotografia: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
-                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="en">Pictured: Inês and Carlos, the faces behind Ventiquattro.</p>
-            </div>
-            <div class="story-image-container">
-                <img src="donos.webp" alt="Inês e Carlos - Donos da Ventiquattro" class="donos-img">
             </div>
         </div>
     </section>
