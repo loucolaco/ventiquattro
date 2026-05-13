@@ -130,8 +130,20 @@
 
         /* --- STORY --- */
         .story-a { background: var(--primary-terracotta); color: white; padding: var(--section-padding); text-align: center; position: relative; }
-        .coincidences-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 900px; margin: 40px auto; }
-        .c-card { background: var(--bg-cream-parchment); color: var(--text-near-black); padding: 25px; border-radius: 8px; }
+        .coincidences-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 1000px; margin: 40px auto; }
+        .c-card { 
+            background: rgba(250, 246, 238, 0.1); 
+            border: 1px solid rgba(250, 246, 238, 0.3);
+            color: var(--bg-cream-parchment); 
+            padding: 20px; 
+            border-radius: 4px; 
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .c-card span { display: block; font-family: var(--font-header); font-size: 24px; margin-top: 5px; font-style: italic; color: white; }
+
         .story-b { padding: var(--section-padding); max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .story-image-container { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
         .donos-img { width: 100%; height: 450px; object-fit: cover; display: block; filter: sepia(20%); transition: transform 0.5s ease; }
@@ -294,10 +306,10 @@
             <p style="max-width:600px; margin:0 auto;" lang="pt">O número 24 apareceu no aniversário da Inês, do Carlos, no dia de casamento e até no número da porta.</p>
             <p style="max-width:600px; margin:0 auto;" lang="en">The number 24 appeared on Inês's birthday, Carlos's, on their wedding day and even on the door number.</p>
             <div class="coincidences-grid">
-                <div class="c-card">🎂 Inês: 24</div>
-                <div class="c-card">🎂 Carlos: 24</div>
-                <div class="c-card">💒 Wedding: 24</div>
-                <div class="c-card">🚪 Door: 24A</div>
+                <div class="c-card">Inês <span>24</span></div>
+                <div class="c-card">Carlos <span>24</span></div>
+                <div class="c-card"><span lang="pt">Casamento</span><span lang="en">Wedding</span> <span>24</span></div>
+                <div class="c-card"><span lang="pt">Porta</span><span lang="en">Door</span> <span>24A</span></div>
             </div>
         </div>
         <div class="story-b">
@@ -308,7 +320,7 @@
                 <p lang="pt">Durante 49 anos, este espaço foi o Salão do Restelo da D. Tina. Hoje, a filha Inês continua o legado, trocando secadores por um forno de pizza artesanal.</p>
                 <p lang="en">For 49 years, this space was D. Tina's Restelo Salon. Today, her daughter Inês continues the legacy, swapping hairdryers for an artisan pizza oven.</p>
                 
-                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="pt">Na fotografia: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
+                <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="pt">Na foto: Inês e Carlos, os rostos por trás da Ventiquattro.</p>
                 <p style="margin-top:15px; font-style:italic; color:var(--text-muted);" lang="en">Pictured: Inês and Carlos, the faces behind Ventiquattro.</p>
             </div>
             <div class="story-image-container">
